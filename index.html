@@ -258,6 +258,7 @@
     .hero {
       position: relative;
       min-height: 100vh;
+      min-height: 100svh; /* avoids mobile browser chrome clipping */
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -343,6 +344,7 @@
       animation: fadeInUp 0.7s 0.15s ease both;
     }
     .hero__title span {
+      color: var(--clr-accent); /* fallback if background-clip: text unsupported */
       background: linear-gradient(90deg, var(--clr-accent) 0%, var(--clr-accent2) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -489,6 +491,25 @@
         opacity: 1;
         transform: none;
       }
+      .hero__badge,
+      .hero__title,
+      .hero__sub,
+      .hero__actions,
+      .hero__stats {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+      .hero__bg::after,
+      .hero__scroll-indicator,
+      .hero__scroll-dot::after {
+        animation: none;
+      }
+    }
+
+    /* Offset anchor targets from fixed nav */
+    section[id] {
+      scroll-margin-top: 72px;
     }
   </style>
 </head>
@@ -520,9 +541,7 @@
   </div>
 </header>
   <section class="hero" id="hero">
-  <div class="hero__bg">
-    <div class="hero__particles" id="particles"></div>
-  </div>
+  <div class="hero__bg"></div>
   <div class="container hero__content">
     <div class="hero__badge">
       <i class="fas fa-certificate"></i>
