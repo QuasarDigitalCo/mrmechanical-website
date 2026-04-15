@@ -822,6 +822,255 @@
   .projects__grid { grid-template-columns: 1fr; }
 }
 
+/* ============================================================
+   CONTACT
+============================================================ */
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.contact__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+a.contact__item:hover { background: var(--clr-light); }
+.contact__item-icon {
+  width: 40px; height: 40px;
+  min-width: 40px;
+  background: linear-gradient(135deg, var(--clr-navy), var(--clr-blue));
+  border-radius: 8px;
+  display: grid; place-items: center;
+  color: var(--clr-white);
+  font-size: 0.95rem;
+}
+.contact__item span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+.contact__item strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+  margin-top: 0.1rem;
+}
+
+.contact__social {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.contact__social-btn {
+  width: 40px; height: 40px;
+  background: var(--clr-light);
+  border-radius: 8px;
+  display: grid; place-items: center;
+  color: var(--clr-navy);
+  font-size: 1rem;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.contact__social-btn:hover {
+  background: var(--clr-navy);
+  color: var(--clr-white);
+  transform: translateY(-3px);
+}
+
+.contact__careers {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--clr-light);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--clr-accent);
+  font-size: 0.88rem;
+}
+.contact__careers > i {
+  color: var(--clr-accent);
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+.contact__careers strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.contact__careers p { color: var(--clr-muted); line-height: 1.5; }
+.contact__careers a { color: var(--clr-blue); text-decoration: underline; }
+
+/* Form */
+.contact__form-wrap {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+.contact__form h3 {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--clr-dark);
+  margin-bottom: 1.5rem;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.form-group label {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+  letter-spacing: 0.03em;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--clr-text);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.9rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  background: var(--clr-white);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--clr-blue);
+  box-shadow: 0 0 0 3px rgba(37,99,168,0.12);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+.form-success {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  border-radius: var(--radius-sm);
+  color: #065f46;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .contact__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.footer {
+  background: var(--clr-dark);
+  color: rgba(255,255,255,0.65);
+  padding-top: 3.5rem;
+}
+.footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer__brand p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  max-width: 34ch;
+  margin-top: 0.75rem;
+}
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.footer h4 {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.footer__links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.footer__links a {
+  font-size: 0.88rem;
+  transition: color var(--transition);
+}
+.footer__links a:hover { color: var(--clr-accent2); }
+.footer__contact p {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.footer__contact i { color: var(--clr-accent); margin-top: 0.15rem; }
+.footer__contact a { transition: color var(--transition); }
+.footer__contact a:hover { color: var(--clr-accent2); }
+
+.footer__bottom {
+  padding: 1.25rem 0;
+}
+.footer__bottom .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 860px) {
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+  .footer__brand { grid-column: 1 / -1; }
+  .footer__bottom .container { justify-content: center; text-align: center; }
+}
+@media (max-width: 500px) {
+  .footer__inner { grid-template-columns: 1fr; }
+}
+
     /* ============================================================
        ACCESSIBILITY: REDUCED MOTION
     ============================================================ */
@@ -1227,8 +1476,166 @@
     </div>
   </div>
 </section>
-  <!-- CONTACT placeholder -->
-  <!-- FOOTER placeholder -->
+<section class="contact section-pad" id="contact">
+  <div class="container">
+    <div class="contact__grid">
+
+      <div class="contact__info reveal-left">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Contact <span>Mr Mechanical</span></h2>
+        <p class="section-desc" style="margin-top:0.75rem; margin-bottom:2rem;">
+          Ready to discuss your HVAC project? We'd love to hear from you.
+          Reach out to request a quote, schedule service, or ask about employment opportunities.
+        </p>
+
+        <div class="contact__details">
+          <a href="tel:+19722711225" class="contact__item">
+            <div class="contact__item-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+            <div>
+              <span>Phone</span>
+              <strong>(972) 271-1225</strong>
+            </div>
+          </a>
+          <a href="mailto:service@mrmechlp.com" class="contact__item">
+            <div class="contact__item-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+            <div>
+              <span>Email</span>
+              <strong>service@mrmechlp.com</strong>
+            </div>
+          </a>
+          <div class="contact__item">
+            <div class="contact__item-icon"><i class="fas fa-fax" aria-hidden="true"></i></div>
+            <div>
+              <span>Fax</span>
+              <strong>(972) 278-6802</strong>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__item-icon"><i class="fas fa-location-dot" aria-hidden="true"></i></div>
+            <div>
+              <span>Head Office</span>
+              <strong>2625 National Circle, Garland, TX 75041</strong>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__item-icon"><i class="fas fa-map" aria-hidden="true"></i></div>
+            <div>
+              <span>Service Area</span>
+              <strong>Dallas / Fort Worth Metroplex</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact__social">
+          <a href="#" class="contact__social-btn" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="contact__social-btn" aria-label="Facebook">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="contact__social-btn" aria-label="Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="contact__careers reveal delay-2">
+          <i class="fas fa-briefcase" aria-hidden="true"></i>
+          <div>
+            <strong>Careers</strong>
+            <p>Interested in joining our team? Submit your resume to <a href="mailto:service@mrmechlp.com">service@mrmechlp.com</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__form-wrap reveal-right">
+        <form class="contact__form" onsubmit="handleFormSubmit(event)" novalidate>
+          <h3>Request a Quote</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@company.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(972) 555-0100" />
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option value="">Select a service...</option>
+              <option>Retail Finish-Out</option>
+              <option>MRI/CT Scan Ventilation</option>
+              <option>Office Building HVAC</option>
+              <option>Warehouse Systems</option>
+              <option>Gymnasium Climate Control</option>
+              <option>Showroom Installation</option>
+              <option>New Installation / Retrofit</option>
+              <option>Maintenance Contract</option>
+              <option>Hail Damage Assessment</option>
+              <option>Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+          </button>
+          <div id="formSuccess" class="form-success" style="display:none;" role="alert" aria-live="polite">
+            <i class="fas fa-circle-check" aria-hidden="true"></i>
+            Thank you! We'll be in touch within one business day.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <div class="footer__logo">
+        <span class="nav__logo-icon"><i class="fas fa-wind" aria-hidden="true"></i></span>
+        <span class="nav__logo-text">Mr<strong>Mechanical</strong></span>
+      </div>
+      <p>Premier DFW HVAC mechanical contracting &amp; service. Serving Dallas/Fort Worth with 50+ years of combined experience.</p>
+    </div>
+    <div class="footer__links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer__contact">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+19722711225">(972) 271-1225</a></p>
+      <p><i class="fas fa-fax" aria-hidden="true"></i> (972) 278-6802</p>
+      <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:service@mrmechlp.com">service@mrmechlp.com</a></p>
+      <p><i class="fas fa-location-dot" aria-hidden="true"></i> 2625 National Circle,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Garland, TX 75041</p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container">
+      <span>&copy; 2016 Mr Mechanical, LP — All Rights Reserved</span>
+      <span>Serving the DFW HVAC &amp; Mechanical Systems Needs</span>
+    </div>
+  </div>
+</footer>
 
   <script>
     // Intersection Observer for scroll reveals
@@ -1272,6 +1679,17 @@
         navToggle.focus();
       }
     });
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const successEl = document.getElementById('formSuccess');
+    successEl.style.display = 'flex';
+    e.target.reset();
+    successEl.focus();
+    setTimeout(() => {
+      successEl.style.display = 'none';
+    }, 5000);
+  }
   </script>
 </body>
 </html>
