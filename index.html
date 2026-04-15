@@ -253,6 +253,233 @@
     }
 
     /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--clr-dark) 0%, #0f2540 40%, #162e50 70%, #0d1b2a 100%);
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* Animated geometric lines */
+    .hero__bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 60px,
+          rgba(37,99,168,0.04) 60px,
+          rgba(37,99,168,0.04) 61px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 60px,
+          rgba(37,99,168,0.04) 60px,
+          rgba(37,99,168,0.04) 61px
+        );
+    }
+
+    /* Glowing orb */
+    .hero__bg::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,99,168,0.18) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      animation: orb-drift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes orb-drift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(-60px, 60px) scale(1.1); }
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(232,151,26,0.15);
+      border: 1px solid rgba(232,151,26,0.35);
+      color: var(--clr-accent2);
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 0.7s ease both;
+    }
+
+    .hero__title {
+      font-family: var(--font-head);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--clr-white);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      animation: fadeInUp 0.7s 0.15s ease both;
+    }
+    .hero__title span {
+      background: linear-gradient(90deg, var(--clr-accent) 0%, var(--clr-accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__sub {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: rgba(255,255,255,0.75);
+      max-width: 52ch;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.7s 0.25s ease both;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      animation: fadeInUp 0.7s 0.35s ease both;
+    }
+
+    /* Shared button styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-head);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 0.8rem 1.6rem;
+      border-radius: 50px;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .btn--primary {
+      background: var(--clr-accent);
+      color: var(--clr-white);
+      box-shadow: 0 4px 20px rgba(232,151,26,0.35);
+    }
+    .btn--primary:hover {
+      background: var(--clr-accent2);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(232,151,26,0.45);
+    }
+    .btn--outline {
+      border: 2px solid rgba(255,255,255,0.35);
+      color: var(--clr-white);
+    }
+    .btn--outline:hover {
+      border-color: var(--clr-white);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+    .btn--blue {
+      background: var(--clr-blue);
+      color: var(--clr-white);
+      box-shadow: 0 4px 20px rgba(37,99,168,0.3);
+    }
+    .btn--blue:hover {
+      background: #1d5096;
+      transform: translateY(-2px);
+    }
+
+    .hero__stats {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.7s 0.45s ease both;
+    }
+    .hero__stat { text-align: left; }
+    .hero__stat strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--clr-white);
+      line-height: 1;
+    }
+    .hero__stat span {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+    .hero__stat-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .hero__scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: bounce 2s ease infinite;
+    }
+    .hero__scroll-dot {
+      width: 28px; height: 44px;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-radius: 14px;
+      position: relative;
+    }
+    .hero__scroll-dot::after {
+      content: '';
+      position: absolute;
+      top: 6px; left: 50%;
+      transform: translateX(-50%);
+      width: 4px; height: 8px;
+      background: var(--clr-accent);
+      border-radius: 2px;
+      animation: scroll-dot 2s ease infinite;
+    }
+
+    @keyframes scroll-dot {
+      0%   { top: 6px; opacity: 1; }
+      100% { top: 22px; opacity: 0; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
        ACCESSIBILITY: REDUCED MOTION
     ============================================================ */
     @media (prefers-reduced-motion: reduce) {
@@ -292,7 +519,53 @@
     </nav>
   </div>
 </header>
-  <!-- HERO placeholder -->
+  <section class="hero" id="hero">
+  <div class="hero__bg">
+    <div class="hero__particles" id="particles"></div>
+  </div>
+  <div class="container hero__content">
+    <div class="hero__badge">
+      <i class="fas fa-certificate"></i>
+      DFW's Premier HVAC Contractor — 50+ Years Combined Experience
+    </div>
+    <h1 class="hero__title">
+      Serving the DFW<br>
+      <span>HVAC &amp; Mechanical</span><br>
+      Systems Needs
+    </h1>
+    <p class="hero__sub">
+      Mr Mechanical, LP is Dallas/Fort Worth's trusted partner for commercial and residential HVAC
+      mechanical contracting, installation, service, and maintenance.
+    </p>
+    <div class="hero__actions">
+      <a href="tel:+19722711225" class="btn btn--primary">
+        <i class="fas fa-phone-volume"></i> Call (972) 271-1225
+      </a>
+      <a href="#services" class="btn btn--outline">
+        Our Services <i class="fas fa-arrow-down"></i>
+      </a>
+    </div>
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <strong>50+</strong>
+        <span>Years Combined Experience</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <strong>DFW</strong>
+        <span>Dallas / Fort Worth Region</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <strong>All Makes</strong>
+        <span>Every Brand &amp; Model</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll-indicator">
+    <div class="hero__scroll-dot"></div>
+  </div>
+</section>
   <!-- ABOUT placeholder -->
   <!-- SERVICES placeholder -->
   <!-- PRODUCTS placeholder -->
