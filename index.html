@@ -128,6 +128,123 @@
     .delay-6 { transition-delay: 0.6s; }
 
     /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    }
+    .nav.scrolled {
+      background: rgba(13, 27, 42, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+      padding: 0.6rem 0;
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--clr-white);
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .nav__logo-icon {
+      width: 38px; height: 38px;
+      background: var(--clr-accent);
+      border-radius: 8px;
+      display: grid; place-items: center;
+      font-size: 1rem;
+      color: var(--clr-white);
+      flex-shrink: 0;
+    }
+    .nav__logo-text { letter-spacing: -0.01em; }
+    .nav__logo-text strong { font-weight: 800; color: var(--clr-accent); }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .nav__link {
+      color: rgba(255,255,255,0.85);
+      font-family: var(--font-head);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav__link:hover {
+      color: var(--clr-white);
+      background: rgba(255,255,255,0.08);
+    }
+    .nav__cta {
+      margin-left: 0.5rem;
+      background: var(--clr-accent);
+      color: var(--clr-white);
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background var(--transition), transform var(--transition);
+      white-space: nowrap;
+    }
+    .nav__cta:hover {
+      background: var(--clr-accent2);
+      transform: translateY(-1px);
+    }
+
+    /* Hamburger */
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav__toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--clr-white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    @media (max-width: 900px) {
+      .nav__toggle { display: flex; }
+      .nav__links {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(13,27,42,0.98);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 0.5rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      .nav__links.open { display: flex; }
+      .nav__link { padding: 0.6rem 1rem; width: 100%; }
+      .nav__cta { justify-content: center; margin-left: 0; }
+    }
+
+    /* ============================================================
        ACCESSIBILITY: REDUCED MOTION
     ============================================================ */
     @media (prefers-reduced-motion: reduce) {
@@ -142,7 +259,27 @@
 </head>
 <body>
 
-  <!-- NAV placeholder -->
+  <header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#hero" class="nav__logo">
+      <span class="nav__logo-icon"><i class="fas fa-wind"></i></span>
+      <span class="nav__logo-text">Mr<strong>Mechanical</strong></span>
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about"    class="nav__link">About</a>
+      <a href="#services" class="nav__link">Services</a>
+      <a href="#products" class="nav__link">Products</a>
+      <a href="#projects" class="nav__link">Projects</a>
+      <a href="#contact"  class="nav__link">Contact</a>
+      <a href="tel:9722711225" class="nav__cta">
+        <i class="fas fa-phone"></i> (972) 271-1225
+      </a>
+    </nav>
+  </div>
+</header>
   <!-- HERO placeholder -->
   <!-- ABOUT placeholder -->
   <!-- SERVICES placeholder -->
@@ -164,6 +301,24 @@
 
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
       .forEach(el => observer.observe(el));
+
+    // Nav scroll behavior
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav__link, .nav__cta').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
   </script>
 </body>
 </html>
