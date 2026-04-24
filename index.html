@@ -5,6 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mr Mechanical LP | DFW HVAC & Mechanical Systems</title>
   <meta name="description" content="Premier DFW HVAC mechanical contracting and service provider. 50+ years combined experience serving Dallas/Fort Worth." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.mrmechlp.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.mrmechlp.com/" />
+  <meta property="og:title" content="Mr Mechanical LP | DFW HVAC & Mechanical Systems" />
+  <meta property="og:description" content="Premier DFW HVAC mechanical contracting and service provider. 50+ years combined experience serving Dallas/Fort Worth." />
+  <meta property="og:image" content="https://www.mrmechlp.com/mr-logo.png" />
+  <meta property="og:site_name" content="Mr Mechanical LP" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mr Mechanical LP | DFW HVAC & Mechanical Systems" />
+  <meta name="twitter:description" content="Premier DFW HVAC mechanical contracting and service provider. 50+ years combined experience serving Dallas/Fort Worth." />
+  <meta name="twitter:image" content="https://www.mrmechlp.com/mr-logo.png" />
+
+  <!-- Schema.org: LocalBusiness / HVACBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HVACBusiness",
+    "name": "Mr Mechanical LP",
+    "description": "Premier DFW HVAC mechanical contracting and service provider. 50+ years combined experience serving Dallas/Fort Worth.",
+    "url": "https://www.mrmechlp.com",
+    "telephone": "+1-972-271-1225",
+    "faxNumber": "+1-972-278-6802",
+    "email": "service@mrmechlp.com",
+    "logo": "https://www.mrmechlp.com/mr-logo.png",
+    "image": "https://www.mrmechlp.com/mr-logo.png",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10720 Miller Rd",
+      "addressLocality": "Dallas",
+      "addressRegion": "TX",
+      "postalCode": "75238",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.8831,
+      "longitude": -96.6869
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Dallas-Fort Worth Metroplex"
+    },
+    "serviceType": [
+      "HVAC Installation",
+      "HVAC Maintenance",
+      "HVAC Repair",
+      "Commercial HVAC",
+      "Mechanical Contracting"
+    ],
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.svg" sizes="any" />
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="mr-logo.png" as="image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -1621,7 +1686,10 @@ a.contact__item:hover { background: var(--clr-light); }
       </div>
 
       <div class="contact__form-wrap reveal-right">
-        <form class="contact__form" onsubmit="handleFormSubmit(event)" novalidate>
+        <form class="contact__form" id="contactForm" novalidate>
+          <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="New Quote Request — Mr Mechanical LP" />
+          <input type="hidden" name="from_name" value="Mr Mechanical LP Website" />
           <h3>Request a Quote</h3>
           <div class="form-row">
             <div class="form-group">
@@ -1703,7 +1771,7 @@ a.contact__item:hover { background: var(--clr-light); }
   </div>
   <div class="footer__bottom">
     <div class="container">
-      <span>&copy; 2016 Mr Mechanical, LP — All Rights Reserved</span>
+      <span>&copy; 2026 Mr Mechanical, LP — All Rights Reserved</span>
       <span>Serving the DFW HVAC &amp; Mechanical Systems Needs</span>
     </div>
   </div>
@@ -1752,16 +1820,35 @@ a.contact__item:hover { background: var(--clr-light); }
       }
     });
 
-  function handleFormSubmit(e) {
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
     const successEl = document.getElementById('formSuccess');
-    successEl.style.display = 'flex';
-    e.target.reset();
-    successEl.focus();
-    setTimeout(() => {
-      successEl.style.display = 'none';
-    }, 5000);
-  }
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(this)))
+      });
+      const result = await res.json();
+      if (result.success) {
+        successEl.style.display = 'flex';
+        successEl.focus();
+        this.reset();
+        setTimeout(() => { successEl.style.display = 'none'; }, 6000);
+      } else {
+        alert('Something went wrong. Please call us at (972) 271-1225.');
+      }
+    } catch {
+      alert('Something went wrong. Please call us at (972) 271-1225.');
+    } finally {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    }
+  });
   </script>
 </body>
 </html>
