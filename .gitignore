@@ -1,0 +1,6 @@
+# Admin & internal files
+.claude/
+docs/
+reports/
+index2.html
+*.pdf
