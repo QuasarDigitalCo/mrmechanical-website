@@ -27,8 +27,10 @@ content:
     fields:
       - name: items
         label: Service Cards
-        type: list
-        summary: "{{fields.title}}"
+        type: object
+        list:
+          collapsible:
+            summary: "{title}"
         fields:
           - { name: title, label: "Service Name", type: string }
           - { name: description, label: "Description", type: text }
@@ -56,8 +58,10 @@ content:
     fields:
       - name: items
         label: Product Items
-        type: list
-        summary: "{{fields.title}}"
+        type: object
+        list:
+          collapsible:
+            summary: "{title}"
         fields:
           - { name: title, label: "Product Name", type: string }
           - { name: description, label: "Description", type: text }
@@ -82,8 +86,10 @@ content:
     fields:
       - name: items
         label: Project Cards
-        type: list
-        summary: "{{fields.title}} ({{fields.category}})"
+        type: object
+        list:
+          collapsible:
+            summary: "{title} ({category})"
         fields:
           - { name: category, label: "Category", type: string, hint: "e.g. Commercial, Medical, Industrial, Athletic" }
           - { name: title, label: "Project Title", type: string }
