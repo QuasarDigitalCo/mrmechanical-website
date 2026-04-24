@@ -9,7 +9,7 @@ content:
     path: content/business.json
     fields:
       - { name: phone, label: "Phone Number", type: string }
-      - { name: phone_raw, label: "Phone (digits only, for links)", type: string }
+      - { name: phone_raw, label: "Phone Digits Only (for links)", type: string }
       - { name: fax, label: "Fax Number", type: string }
       - { name: email, label: "Email Address", type: string }
       - { name: address, label: "Street Address", type: string }
@@ -18,7 +18,7 @@ content:
       - { name: zip, label: "ZIP Code", type: string }
       - { name: service_area, label: "Service Area", type: string }
       - { name: experience_years, label: "Years of Experience", type: string }
-      - { name: description, label: "Short Description (SEO)", type: text }
+      - { name: description, label: "Short Description (used in SEO)", type: text }
 
   - name: services
     label: Services
@@ -28,10 +28,26 @@ content:
       - name: items
         label: Service Cards
         type: list
+        summary: "{{fields.title}}"
         fields:
-          - { name: title, label: "Service Title", type: string }
+          - { name: title, label: "Service Name", type: string }
           - { name: description, label: "Description", type: text }
-          - { name: icon, label: "Icon (Font Awesome class)", type: string, hint: "e.g. fas fa-store" }
+          - name: icon
+            label: "Icon"
+            type: select
+            options:
+              - { label: "Store / Retail", value: "fas fa-store" }
+              - { label: "Medical / X-Ray", value: "fas fa-x-ray" }
+              - { label: "Office Building", value: "fas fa-building" }
+              - { label: "Warehouse", value: "fas fa-warehouse" }
+              - { label: "Gymnasium", value: "fas fa-dumbbell" }
+              - { label: "Showroom / Tags", value: "fas fa-tags" }
+              - { label: "Tools / Wrench", value: "fas fa-screwdriver-wrench" }
+              - { label: "Clipboard / Contract", value: "fas fa-clipboard-check" }
+              - { label: "Rain / Weather", value: "fas fa-cloud-rain" }
+              - { label: "Snowflake / AC", value: "fas fa-snowflake" }
+              - { label: "Thermometer", value: "fas fa-thermometer-half" }
+              - { label: "Server / Computer", value: "fas fa-server" }
 
   - name: products
     label: Products & Systems
@@ -41,10 +57,23 @@ content:
       - name: items
         label: Product Items
         type: list
+        summary: "{{fields.title}}"
         fields:
-          - { name: title, label: "Product Title", type: string }
+          - { name: title, label: "Product Name", type: string }
           - { name: description, label: "Description", type: text }
-          - { name: icon, label: "Icon (Font Awesome class)", type: string, hint: "e.g. fas fa-box-open" }
+          - name: icon
+            label: "Icon"
+            type: select
+            options:
+              - { label: "Box / Package", value: "fas fa-box-open" }
+              - { label: "Layers / Split System", value: "fas fa-layer-group" }
+              - { label: "Rotate / Compressor", value: "fas fa-arrows-rotate" }
+              - { label: "Sliders / Controls", value: "fas fa-sliders" }
+              - { label: "Server / Computer Room", value: "fas fa-server" }
+              - { label: "Thermometer / Heat Pump", value: "fas fa-thermometer-half" }
+              - { label: "Snowflake / AC", value: "fas fa-snowflake" }
+              - { label: "Store / Retail", value: "fas fa-store" }
+              - { label: "Building", value: "fas fa-building" }
 
   - name: projects
     label: Projects
@@ -54,9 +83,19 @@ content:
       - name: items
         label: Project Cards
         type: list
+        summary: "{{fields.title}} ({{fields.category}})"
         fields:
-          - { name: category, label: "Category", type: string, hint: "e.g. Commercial, Medical, Industrial" }
+          - { name: category, label: "Category", type: string, hint: "e.g. Commercial, Medical, Industrial, Athletic" }
           - { name: title, label: "Project Title", type: string }
           - { name: description, label: "Description", type: text }
           - { name: image, label: "Project Photo", type: image }
-          - { name: coming_soon, label: "Show Coming Soon badge", type: boolean }
+          - name: icon
+            label: "Placeholder Icon (shown when no photo)"
+            type: select
+            options:
+              - { label: "Building / Commercial", value: "fas fa-building" }
+              - { label: "Medical / X-Ray", value: "fas fa-x-ray" }
+              - { label: "Warehouse / Industrial", value: "fas fa-warehouse" }
+              - { label: "Gymnasium / Athletic", value: "fas fa-dumbbell" }
+              - { label: "Store / Retail", value: "fas fa-store" }
+          - { name: coming_soon, label: "Show 'Coming Soon' badge", type: boolean }
