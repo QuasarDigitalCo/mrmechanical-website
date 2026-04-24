@@ -1,0 +1,56 @@
+media:
+  input: media
+  output: /media
+
+content:
+  - name: business
+    label: Business Info
+    type: file
+    path: content/business.json
+    fields:
+      - { name: phone, label: "Phone Number", type: string }
+      - { name: phone_raw, label: "Phone (digits only, for links)", type: string }
+      - { name: fax, label: "Fax Number", type: string }
+      - { name: email, label: "Email Address", type: string }
+      - { name: address, label: "Street Address", type: string }
+      - { name: city, label: "City", type: string }
+      - { name: state, label: "State", type: string }
+      - { name: zip, label: "ZIP Code", type: string }
+      - { name: service_area, label: "Service Area", type: string }
+      - { name: experience_years, label: "Years of Experience", type: string }
+      - { name: description, label: "Short Description (used in SEO)", type: text }
+
+  - name: services
+    label: Services
+    type: collection
+    path: content/services.json
+    view:
+      fields: [title]
+    fields:
+      - { name: title, label: "Service Title", type: string }
+      - { name: description, label: "Description", type: text }
+      - { name: icon, label: "Icon (Font Awesome class)", type: string, hint: "e.g. fas fa-store" }
+
+  - name: products
+    label: Products & Systems
+    type: collection
+    path: content/products.json
+    view:
+      fields: [title]
+    fields:
+      - { name: title, label: "Product Title", type: string }
+      - { name: description, label: "Description", type: text }
+      - { name: icon, label: "Icon (Font Awesome class)", type: string, hint: "e.g. fas fa-box-open" }
+
+  - name: projects
+    label: Projects
+    type: collection
+    path: content/projects.json
+    view:
+      fields: [title, category]
+    fields:
+      - { name: category, label: "Category", type: string, hint: "e.g. Commercial, Medical, Industrial" }
+      - { name: title, label: "Project Title", type: string }
+      - { name: description, label: "Description", type: text }
+      - { name: image, label: "Project Photo", type: image }
+      - { name: coming_soon, label: "Coming Soon (show placeholder)", type: boolean }
