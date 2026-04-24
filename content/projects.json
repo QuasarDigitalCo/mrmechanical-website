@@ -1,34 +1,36 @@
-[
-  {
-    "category": "Commercial",
-    "title": "Project Coming Soon",
-    "description": "Details for this featured project will be published shortly.",
-    "image": "",
-    "icon": "fas fa-building",
-    "coming_soon": true
-  },
-  {
-    "category": "Medical",
-    "title": "Project Coming Soon",
-    "description": "Details for this featured project will be published shortly.",
-    "image": "",
-    "icon": "fas fa-x-ray",
-    "coming_soon": true
-  },
-  {
-    "category": "Industrial",
-    "title": "Project Coming Soon",
-    "description": "Details for this featured project will be published shortly.",
-    "image": "",
-    "icon": "fas fa-warehouse",
-    "coming_soon": true
-  },
-  {
-    "category": "Athletic",
-    "title": "Project Coming Soon",
-    "description": "Details for this featured project will be published shortly.",
-    "image": "",
-    "icon": "fas fa-dumbbell",
-    "coming_soon": true
-  }
-]
+{
+  "items": [
+    {
+      "category": "Commercial",
+      "title": "Project Coming Soon",
+      "description": "Details for this featured project will be published shortly.",
+      "image": "",
+      "icon": "fas fa-building",
+      "coming_soon": true
+    },
+    {
+      "category": "Medical",
+      "title": "Project Coming Soon",
+      "description": "Details for this featured project will be published shortly.",
+      "image": "",
+      "icon": "fas fa-x-ray",
+      "coming_soon": true
+    },
+    {
+      "category": "Industrial",
+      "title": "Project Coming Soon",
+      "description": "Details for this featured project will be published shortly.",
+      "image": "",
+      "icon": "fas fa-warehouse",
+      "coming_soon": true
+    },
+    {
+      "category": "Athletic",
+      "title": "Project Coming Soon",
+      "description": "Details for this featured project will be published shortly.",
+      "image": "",
+      "icon": "fas fa-dumbbell",
+      "coming_soon": true
+    }
+  ]
+}

@@ -1687,9 +1687,9 @@ a.contact__item:hover { background: var(--clr-light); }
           fetch('content/products.json').then(r => r.json()),
           fetch('content/projects.json').then(r => r.json()),
         ]);
-        renderServices(services);
-        renderProducts(products);
-        renderProjects(projects);
+        renderServices(services.items);
+        renderProducts(products.items);
+        renderProjects(projects.items);
         updateBusiness(business);
         observeReveal();
       } catch (e) {

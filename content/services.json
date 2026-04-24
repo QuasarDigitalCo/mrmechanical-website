@@ -1,47 +1,49 @@
-[
-  {
-    "icon": "fas fa-store",
-    "title": "Retail Finish-Out",
-    "description": "Complete HVAC installation for retail spaces, from design through commissioning, ensuring optimal comfort for customers and staff."
-  },
-  {
-    "icon": "fas fa-x-ray",
-    "title": "MRI / CT Scan Ventilation",
-    "description": "Specialized ventilation systems for medical imaging facilities, meeting strict temperature, humidity, and air quality requirements."
-  },
-  {
-    "icon": "fas fa-building",
-    "title": "Office Buildings",
-    "description": "Full-service commercial HVAC solutions for office environments — installation, zoning, controls, and long-term maintenance plans."
-  },
-  {
-    "icon": "fas fa-warehouse",
-    "title": "Warehouses",
-    "description": "Industrial-grade climate control and ventilation systems designed for large warehouse and distribution center applications."
-  },
-  {
-    "icon": "fas fa-dumbbell",
-    "title": "Gymnasiums",
-    "description": "High-capacity HVAC systems for gymnasiums and athletic facilities, managing high occupancy loads and air quality demands."
-  },
-  {
-    "icon": "fas fa-tags",
-    "title": "Showrooms",
-    "description": "Precision climate control for showroom environments, protecting inventory and creating a comfortable experience for visitors."
-  },
-  {
-    "icon": "fas fa-screwdriver-wrench",
-    "title": "New Installations & Retrofits",
-    "description": "Ground-up HVAC installation for new construction as well as system upgrades and retrofits for existing commercial buildings."
-  },
-  {
-    "icon": "fas fa-clipboard-check",
-    "title": "Maintenance Contract Plans",
-    "description": "Scheduled maintenance agreements to extend the life of your HVAC equipment, reduce operating costs, and prevent unexpected failures."
-  },
-  {
-    "icon": "fas fa-cloud-rain",
-    "title": "Hail Damage Assessment",
-    "description": "Expert evaluation of HVAC equipment damaged by hail and severe weather, with documentation support for insurance claims."
-  }
-]
+{
+  "items": [
+    {
+      "icon": "fas fa-store",
+      "title": "Retail Finish-Out",
+      "description": "Complete HVAC installation for retail spaces, from design through commissioning, ensuring optimal comfort for customers and staff."
+    },
+    {
+      "icon": "fas fa-x-ray",
+      "title": "MRI / CT Scan Ventilation",
+      "description": "Specialized ventilation systems for medical imaging facilities, meeting strict temperature, humidity, and air quality requirements."
+    },
+    {
+      "icon": "fas fa-building",
+      "title": "Office Buildings",
+      "description": "Full-service commercial HVAC solutions for office environments — installation, zoning, controls, and long-term maintenance plans."
+    },
+    {
+      "icon": "fas fa-warehouse",
+      "title": "Warehouses",
+      "description": "Industrial-grade climate control and ventilation systems designed for large warehouse and distribution center applications."
+    },
+    {
+      "icon": "fas fa-dumbbell",
+      "title": "Gymnasiums",
+      "description": "High-capacity HVAC systems for gymnasiums and athletic facilities, managing high occupancy loads and air quality demands."
+    },
+    {
+      "icon": "fas fa-tags",
+      "title": "Showrooms",
+      "description": "Precision climate control for showroom environments, protecting inventory and creating a comfortable experience for visitors."
+    },
+    {
+      "icon": "fas fa-screwdriver-wrench",
+      "title": "New Installations & Retrofits",
+      "description": "Ground-up HVAC installation for new construction as well as system upgrades and retrofits for existing commercial buildings."
+    },
+    {
+      "icon": "fas fa-clipboard-check",
+      "title": "Maintenance Contract Plans",
+      "description": "Scheduled maintenance agreements to extend the life of your HVAC equipment, reduce operating costs, and prevent unexpected failures."
+    },
+    {
+      "icon": "fas fa-cloud-rain",
+      "title": "Hail Damage Assessment",
+      "description": "Expert evaluation of HVAC equipment damaged by hail and severe weather, with documentation support for insurance claims."
+    }
+  ]
+}

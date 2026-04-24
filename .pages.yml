@@ -18,39 +18,45 @@ content:
       - { name: zip, label: "ZIP Code", type: string }
       - { name: service_area, label: "Service Area", type: string }
       - { name: experience_years, label: "Years of Experience", type: string }
-      - { name: description, label: "Short Description (used in SEO)", type: text }
+      - { name: description, label: "Short Description (SEO)", type: text }
 
   - name: services
     label: Services
-    type: collection
+    type: file
     path: content/services.json
-    view:
-      fields: [title]
     fields:
-      - { name: title, label: "Service Title", type: string }
-      - { name: description, label: "Description", type: text }
-      - { name: icon, label: "Icon (Font Awesome class)", type: string, hint: "e.g. fas fa-store" }
+      - name: items
+        label: Service Cards
+        type: list
+        fields:
+          - { name: title, label: "Service Title", type: string }
+          - { name: description, label: "Description", type: text }
+          - { name: icon, label: "Icon (Font Awesome class)", type: string, hint: "e.g. fas fa-store" }
 
   - name: products
     label: Products & Systems
-    type: collection
+    type: file
     path: content/products.json
-    view:
-      fields: [title]
     fields:
-      - { name: title, label: "Product Title", type: string }
-      - { name: description, label: "Description", type: text }
-      - { name: icon, label: "Icon (Font Awesome class)", type: string, hint: "e.g. fas fa-box-open" }
+      - name: items
+        label: Product Items
+        type: list
+        fields:
+          - { name: title, label: "Product Title", type: string }
+          - { name: description, label: "Description", type: text }
+          - { name: icon, label: "Icon (Font Awesome class)", type: string, hint: "e.g. fas fa-box-open" }
 
   - name: projects
     label: Projects
-    type: collection
+    type: file
     path: content/projects.json
-    view:
-      fields: [title, category]
     fields:
-      - { name: category, label: "Category", type: string, hint: "e.g. Commercial, Medical, Industrial" }
-      - { name: title, label: "Project Title", type: string }
-      - { name: description, label: "Description", type: text }
-      - { name: image, label: "Project Photo", type: image }
-      - { name: coming_soon, label: "Coming Soon (show placeholder)", type: boolean }
+      - name: items
+        label: Project Cards
+        type: list
+        fields:
+          - { name: category, label: "Category", type: string, hint: "e.g. Commercial, Medical, Industrial" }
+          - { name: title, label: "Project Title", type: string }
+          - { name: description, label: "Description", type: text }
+          - { name: image, label: "Project Photo", type: image }
+          - { name: coming_soon, label: "Show Coming Soon badge", type: boolean }
