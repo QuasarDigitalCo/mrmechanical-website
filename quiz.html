@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free HVAC Estimate Quiz | Mr Mechanical LP</title>
+  <meta name="description" content="Answer 5 quick questions and get a free personalized HVAC estimate from Mr Mechanical LP — DFW's trusted HVAC contractor." />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.mrmechlp.com/quiz.html" />
+  <meta property="og:title"       content="Free HVAC Estimate Quiz | Mr Mechanical LP" />
+  <meta property="og:description" content="Answer 5 quick questions and get a free personalized HVAC estimate from Mr Mechanical LP — DFW's trusted HVAC contractor." />
+  <meta property="og:image"       content="https://www.mrmechlp.com/media/mr-logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts & Icons (same as index.html) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES — identical to index.html
+    ============================================================ */
+    :root {
+      --clr-dark:    #0d1b2a;
+      --clr-navy:    #1e3a5f;
+      --clr-blue:    #2563a8;
+      --clr-accent:  #e8971a;
+      --clr-accent2: #f5b942;
+      --clr-light:   #f4f7fb;
+      --clr-white:   #ffffff;
+      --clr-text:    #1a2332;
+      --clr-muted:   #64748b;
+      --clr-border:  #e2e8f0;
+
+      --font-head: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.18);
+
+      --radius:    12px;
+      --radius-sm: 6px;
+      --transition: 0.3s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--clr-text);
+      background: linear-gradient(135deg, var(--clr-dark) 0%, #0f2540 40%, #162e50 70%, #0d1b2a 100%);
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow-x: hidden;
+    }
+    img  { max-width: 100%; display: block; }
+    a    { text-decoration: none; color: inherit; }
+
+    /* ============================================================
+       GEOMETRIC BG (matches hero bg in index.html)
+    ============================================================ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(45deg,  transparent, transparent 60px, rgba(37,99,168,0.04) 60px, rgba(37,99,168,0.04) 61px),
+        repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(37,99,168,0.04) 60px, rgba(37,99,168,0.04) 61px);
+      z-index: 0;
+    }
+
+    /* ============================================================
+       PAGE LAYOUT
+    ============================================================ */
+    .quiz-page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .quiz-header {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 680px;
+      margin-inline: auto;
+      width: 100%;
+    }
+    .quiz-header__logo img {
+      height: 36px;
+      width: auto;
+      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.4));
+    }
+    .quiz-header__phone {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.75);
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+    .quiz-header__phone:hover { color: var(--clr-accent2); }
+    .quiz-header__phone i { color: var(--clr-accent); font-size: 0.75rem; }
+
+    /* ============================================================
+       MAIN CONTENT
+    ============================================================ */
+    .quiz-main {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 1rem 1.5rem 3rem;
+    }
+
+    .quiz-shell {
+      width: 100%;
+      max-width: 560px;
+    }
+
+    /* ============================================================
+       INTRO BADGE
+    ============================================================ */
+    .quiz-intro {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+    .quiz-intro__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(232,151,26,0.15);
+      border: 1px solid rgba(232,151,26,0.35);
+      color: var(--clr-accent2);
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      margin-bottom: 0.9rem;
+    }
+    .quiz-intro__title {
+      font-family: var(--font-head);
+      font-size: clamp(1.45rem, 4vw, 1.9rem);
+      font-weight: 800;
+      color: var(--clr-white);
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .quiz-intro__title span {
+      color: var(--clr-accent);
+      background: linear-gradient(90deg, var(--clr-accent) 0%, var(--clr-accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .quiz-intro__sub {
+      color: rgba(255,255,255,0.68);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      max-width: 46ch;
+      margin-inline: auto;
+    }
+
+    /* ============================================================
+       QUIZ CARD
+    ============================================================ */
+    .quiz-card {
+      background: var(--clr-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    /* Progress bar */
+    .quiz-progress {
+      padding: 1.25rem 1.75rem 0;
+    }
+    .quiz-progress__meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .quiz-progress__label {
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--clr-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .quiz-progress__pct {
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--clr-blue);
+    }
+    .quiz-progress__track {
+      height: 5px;
+      background: var(--clr-border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .quiz-progress__fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--clr-blue) 0%, var(--clr-accent) 100%);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+
+    /* Step body */
+    .quiz-body {
+      padding: 1.5rem 1.75rem 1.75rem;
+    }
+
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+
+    .quiz-step__question {
+      font-family: var(--font-head);
+      font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+      font-weight: 800;
+      color: var(--clr-dark);
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+    }
+
+    /* Choice tiles */
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+    .quiz-option {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--clr-border);
+      border-radius: var(--radius-sm);
+      background: var(--clr-white);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--clr-text);
+      text-align: left;
+      transition: border-color var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+      line-height: 1.35;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .quiz-option:hover {
+      border-color: var(--clr-blue);
+      background: rgba(37,99,168,0.04);
+    }
+    .quiz-option.selected {
+      border-color: var(--clr-blue);
+      background: rgba(37,99,168,0.08);
+      color: var(--clr-blue);
+      box-shadow: 0 0 0 2px rgba(37,99,168,0.18);
+    }
+    .quiz-option__check {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border-radius: 50%;
+      border: 1.5px solid var(--clr-border);
+      display: grid;
+      place-items: center;
+      font-size: 0.6rem;
+      color: transparent;
+      transition: border-color var(--transition), background var(--transition), color var(--transition);
+      flex-shrink: 0;
+    }
+    .quiz-option.selected .quiz-option__check {
+      border-color: var(--clr-blue);
+      background: var(--clr-blue);
+      color: var(--clr-white);
+    }
+
+    /* 4-option grid — single column on mobile */
+    .quiz-options--4 { grid-template-columns: 1fr 1fr; }
+
+    /* ============================================================
+       CONTACT STEP (Q5)
+    ============================================================ */
+    .quiz-contact__heading {
+      font-family: var(--font-head);
+      font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+      font-weight: 800;
+      color: var(--clr-dark);
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+    .form-group label {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--clr-dark);
+      letter-spacing: 0.03em;
+    }
+    .form-group input {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--clr-text);
+      border: 1.5px solid var(--clr-border);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.9rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      background: var(--clr-white);
+      width: 100%;
+    }
+    .form-group input:focus {
+      border-color: var(--clr-blue);
+      box-shadow: 0 0 0 3px rgba(37,99,168,0.12);
+    }
+    .form-group input.invalid {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.12);
+    }
+
+    /* ============================================================
+       NAVIGATION BUTTONS
+    ============================================================ */
+    .quiz-nav {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-head);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .btn--primary {
+      background: var(--clr-accent);
+      color: var(--clr-white);
+      box-shadow: 0 4px 20px rgba(232,151,26,0.35);
+      flex: 1;
+    }
+    .btn--primary:hover:not(:disabled) {
+      background: var(--clr-accent2);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(232,151,26,0.45);
+    }
+    .btn--primary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn--ghost {
+      background: transparent;
+      color: var(--clr-muted);
+      border: 1.5px solid var(--clr-border);
+      padding: 0.8rem 1.1rem;
+    }
+    .btn--ghost:hover {
+      border-color: var(--clr-blue);
+      color: var(--clr-blue);
+      background: rgba(37,99,168,0.05);
+    }
+
+    /* ============================================================
+       SUCCESS STATE
+    ============================================================ */
+    .quiz-success {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 1.75rem;
+    }
+    .quiz-success.visible { display: block; }
+    .quiz-success__icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--clr-navy), var(--clr-blue));
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 1.25rem;
+      color: var(--clr-white);
+      font-size: 1.6rem;
+    }
+    .quiz-success__title {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--clr-dark);
+      margin-bottom: 0.5rem;
+    }
+    .quiz-success__msg {
+      color: var(--clr-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .quiz-success__spinner {
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--clr-blue);
+      font-size: 0.82rem;
+      font-family: var(--font-head);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       TRUST STRIP (below card)
+    ============================================================ */
+    .quiz-trust {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      padding: 0 0.5rem;
+    }
+    .quiz-trust__item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      font-family: var(--font-head);
+      font-weight: 600;
+    }
+    .quiz-trust__item i { color: var(--clr-accent); font-size: 0.75rem; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .quiz-footer {
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+    }
+    .quiz-footer a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: underline;
+      transition: color var(--transition);
+    }
+    .quiz-footer a:hover { color: var(--clr-accent2); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 480px) {
+      .quiz-main { padding-inline: 1rem; }
+      .quiz-body { padding: 1.25rem; }
+      .quiz-progress { padding: 1rem 1.25rem 0; }
+      .quiz-options { grid-template-columns: 1fr; }
+      .quiz-options--4 { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .quiz-intro__title { font-size: 1.35rem; }
+    }
+
+    /* ============================================================
+       REDUCED MOTION
+    ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      .quiz-progress__fill { transition: none; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-page">
+
+  <!-- Header -->
+  <header class="quiz-header">
+    <a href="https://www.mrmechlp.com/" class="quiz-header__logo">
+      <img src="media/logo.png" alt="Mr Mechanical LP" />
+    </a>
+    <a href="tel:+19722711225" class="quiz-header__phone">
+      <i class="fas fa-phone"></i> (972) 271-1225
+    </a>
+  </header>
+
+  <!-- Main -->
+  <main class="quiz-main">
+    <div class="quiz-shell">
+
+      <!-- Intro text (populated from quiz.json) -->
+      <div class="quiz-intro">
+        <div class="quiz-intro__badge">
+          <i class="fas fa-certificate"></i>
+          <span>Free Estimate — No Obligation</span>
+        </div>
+        <h1 class="quiz-intro__title" id="quizTitle">Get Your <span>Free HVAC Estimate</span></h1>
+        <p class="quiz-intro__sub" id="quizSubtitle">Loading…</p>
+      </div>
+
+      <!-- Quiz card -->
+      <div class="quiz-card" id="quizCard">
+
+        <!-- Progress bar -->
+        <div class="quiz-progress">
+          <div class="quiz-progress__meta">
+            <span class="quiz-progress__label" id="progressLabel">Step 1 of 5</span>
+            <span class="quiz-progress__pct"  id="progressPct">20%</span>
+          </div>
+          <div class="quiz-progress__track">
+            <div class="quiz-progress__fill" id="progressFill" style="width:20%"></div>
+          </div>
+        </div>
+
+        <!-- Step content -->
+        <div class="quiz-body" id="quizBody">
+          <!-- Steps injected by JS -->
+        </div>
+
+        <!-- Success state -->
+        <div class="quiz-success" id="quizSuccess">
+          <div class="quiz-success__icon">
+            <i class="fas fa-circle-check" aria-hidden="true"></i>
+          </div>
+          <div class="quiz-success__title">Request Received!</div>
+          <div class="quiz-success__msg" id="quizSuccessMsg">We'll be in touch shortly.</div>
+          <div class="quiz-success__spinner">
+            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+            Taking you to our site…
+          </div>
+        </div>
+
+      </div><!-- /.quiz-card -->
+
+      <!-- Trust strip -->
+      <div class="quiz-trust">
+        <div class="quiz-trust__item"><i class="fas fa-shield-halved"></i> No Spam, Ever</div>
+        <div class="quiz-trust__item"><i class="fas fa-clock"></i> 50+ Years Experience</div>
+        <div class="quiz-trust__item"><i class="fas fa-map-marker-alt"></i> Serving All of DFW</div>
+      </div>
+
+    </div><!-- /.quiz-shell -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="quiz-footer">
+    &copy; 2026 Mr Mechanical, LP &mdash;
+    <a href="https://www.mrmechlp.com/">mrmechlp.com</a>
+  </footer>
+
+</div><!-- /.quiz-page -->
+
+<script type="module">
+  import { submitToCRM } from './js/crmService.js';
+
+  // ── State ──────────────────────────────────────────────────────
+  let quizData   = null;
+  let currentStep = 0;          // 0-3 = Q1-Q4, 4 = contact step
+  const TOTAL_STEPS = 5;
+  const answers = {};           // { systemType, systemAge, mainProblem, urgency }
+
+  // ── DOM refs ───────────────────────────────────────────────────
+  const quizBody     = document.getElementById('quizBody');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const progressPct   = document.getElementById('progressPct');
+  const quizCard      = document.getElementById('quizCard');
+  const quizSuccess   = document.getElementById('quizSuccess');
+  const quizSuccessMsg = document.getElementById('quizSuccessMsg');
+
+  // ── Load content ───────────────────────────────────────────────
+  async function init() {
+    try {
+      quizData = await fetch('content/quiz.json').then(r => r.json());
+    } catch {
+      quizData = null;
+    }
+    populateIntro();
+    buildSteps();
+    showStep(0);
+  }
+
+  function populateIntro() {
+    if (!quizData) return;
+    const titleEl    = document.getElementById('quizTitle');
+    const subtitleEl = document.getElementById('quizSubtitle');
+    if (titleEl) {
+      const parts = quizData.page_title.split(' ');
+      const half  = Math.ceil(parts.length / 2);
+      titleEl.innerHTML = parts.slice(0, half).join(' ') +
+        ' <span>' + parts.slice(half).join(' ') + '</span>';
+    }
+    if (subtitleEl) subtitleEl.textContent = quizData.page_subtitle || '';
+  }
+
+  // ── Build all step HTML ────────────────────────────────────────
+  function buildSteps() {
+    const frag = document.createDocumentFragment();
+
+    // Q1-Q4
+    (quizData ? quizData.questions : []).forEach((q, qi) => {
+      const step = document.createElement('div');
+      step.className = 'quiz-step';
+      step.dataset.stepIndex = qi;
+
+      const isFour = q.options.length === 4;
+      const optionsHTML = q.options.map(opt => `
+        <button type="button"
+                class="quiz-option"
+                data-question="${q.id}"
+                data-value="${opt.value}"
+                data-label="${opt.label}">
+          <span class="quiz-option__check"><i class="fas fa-check" aria-hidden="true"></i></span>
+          ${opt.label}
+        </button>`).join('');
+
+      step.innerHTML = `
+        <div class="quiz-step__question">${q.question}</div>
+        <div class="quiz-options${isFour ? ' quiz-options--4' : ''}" role="group" aria-label="${q.question}">
+          ${optionsHTML}
+        </div>
+        <div class="quiz-nav">
+          ${qi > 0 ? '<button type="button" class="btn btn--ghost quiz-back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</button>' : ''}
+          <button type="button" class="btn btn--primary quiz-next" disabled>
+            Next <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>`;
+
+      frag.appendChild(step);
+    });
+
+    // Contact step (Q5)
+    const contactStep = document.createElement('div');
+    contactStep.className = 'quiz-step';
+    contactStep.dataset.stepIndex = 4;
+
+    const cs = quizData ? quizData.contact_step : {};
+    const fields = cs.fields || {
+      firstName: 'First Name', lastName: 'Last Name',
+      phone: 'Phone Number', email: 'Email Address', zipCode: 'Zip Code'
+    };
+
+    contactStep.innerHTML = `
+      <div class="quiz-contact__heading">${cs.heading || 'Where should we send your free estimate?'}</div>
+      <form id="quizContactForm" novalidate>
+        <!-- TODO: Replace with real Web3Forms access key from web3forms.com — sign up with service@mrmechlp.com -->
+        <input type="hidden" name="access_key"  value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject"     value="New HVAC Lead - Mr. Mech Quiz" />
+        <input type="hidden" name="from_name"   value="Mr Mechanical LP Quiz" />
+        <input type="hidden" name="to"          value="service@mrmechlp.com" />
+        <input type="hidden" name="replyto"     id="replytoField" value="" />
+
+        <!-- Quiz answers as hidden fields (populated on submit) -->
+        <input type="hidden" name="System Type"      id="hSystemType" />
+        <input type="hidden" name="System Age"       id="hSystemAge" />
+        <input type="hidden" name="Main Problem"     id="hMainProblem" />
+        <input type="hidden" name="Urgency"          id="hUrgency" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="qFirstName">${fields.firstName} *</label>
+            <input type="text" id="qFirstName" name="firstName" placeholder="John" required autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="qLastName">${fields.lastName} *</label>
+            <input type="text" id="qLastName" name="lastName" placeholder="Smith" required autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="qPhone">${fields.phone} *</label>
+          <input type="tel" id="qPhone" name="phone" placeholder="(972) 555-0100" required autocomplete="tel" />
+        </div>
+        <div class="form-group">
+          <label for="qEmail">${fields.email} *</label>
+          <input type="email" id="qEmail" name="email" placeholder="john@example.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="qZip">${fields.zipCode} *</label>
+          <input type="text" id="qZip" name="zipCode" placeholder="75238" required inputmode="numeric" maxlength="5" autocomplete="postal-code" />
+        </div>
+
+        <div class="quiz-nav">
+          <button type="button" class="btn btn--ghost quiz-back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</button>
+          <button type="submit" class="btn btn--primary" id="quizSubmitBtn">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            ${cs.submit_button_text || 'Send My Free Estimate'}
+          </button>
+        </div>
+      </form>`;
+
+    frag.appendChild(contactStep);
+    quizBody.appendChild(frag);
+
+    // Attach option click listeners
+    quizBody.addEventListener('click', onOptionClick);
+
+    // Attach next/back listeners (event delegation)
+    quizBody.addEventListener('click', onNavClick);
+
+    // Attach form submit
+    document.addEventListener('submit', onFormSubmit);
+  }
+
+  // ── Option selection ───────────────────────────────────────────
+  function onOptionClick(e) {
+    const btn = e.target.closest('.quiz-option');
+    if (!btn) return;
+
+    const questionId = btn.dataset.question;
+    const parent     = btn.closest('.quiz-options');
+
+    parent.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    answers[questionId] = { value: btn.dataset.value, label: btn.dataset.label };
+
+    const nextBtn = btn.closest('.quiz-step').querySelector('.quiz-next');
+    if (nextBtn) nextBtn.disabled = false;
+  }
+
+  // ── Next / Back ────────────────────────────────────────────────
+  function onNavClick(e) {
+    if (e.target.closest('.quiz-next'))  goNext();
+    if (e.target.closest('.quiz-back'))  goBack();
+  }
+
+  function goNext() {
+    if (currentStep < TOTAL_STEPS - 1) showStep(currentStep + 1);
+  }
+  function goBack() {
+    if (currentStep > 0) showStep(currentStep - 1);
+  }
+
+  function showStep(index) {
+    currentStep = index;
+
+    const steps = quizBody.querySelectorAll('.quiz-step');
+    steps.forEach((s, i) => s.classList.toggle('active', i === index));
+
+    const pct = Math.round(((index + 1) / TOTAL_STEPS) * 100);
+    progressFill.style.width = pct + '%';
+    progressPct.textContent  = pct + '%';
+
+    const labelTpl = (quizData && quizData.progress_label) || 'Step {current} of {total}';
+    progressLabel.textContent = labelTpl
+      .replace('{current}', index + 1)
+      .replace('{total}',   TOTAL_STEPS);
+
+    // Restore previous selection highlight if user goes back
+    if (index < 4 && quizData) {
+      const q = quizData.questions[index];
+      if (answers[q.id]) {
+        const step = quizBody.querySelector(`[data-step-index="${index}"]`);
+        if (step) {
+          const match = step.querySelector(`[data-value="${answers[q.id].value}"]`);
+          if (match) {
+            match.classList.add('selected');
+            const nextBtn = step.querySelector('.quiz-next');
+            if (nextBtn) nextBtn.disabled = false;
+          }
+        }
+      }
+    }
+
+    // Scroll card top into view on mobile
+    quizCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ── Form submit ────────────────────────────────────────────────
+  async function onFormSubmit(e) {
+    const form = e.target;
+    if (form.id !== 'quizContactForm') return;
+    e.preventDefault();
+
+    if (!validateContactForm(form)) return;
+
+    const submitBtn = document.getElementById('quizSubmitBtn');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending…';
+
+    // Populate hidden quiz-answer fields
+    document.getElementById('hSystemType').value  = formatAnswer('systemType');
+    document.getElementById('hSystemAge').value   = formatAnswer('systemAge');
+    document.getElementById('hMainProblem').value = formatAnswer('mainProblem');
+    document.getElementById('hUrgency').value     = formatAnswer('urgency');
+
+    const emailInput = document.getElementById('qEmail');
+    document.getElementById('replytoField').value = emailInput.value;
+
+    // Build CRM payload
+    const payload = {
+      firstName:   document.getElementById('qFirstName').value.trim(),
+      lastName:    document.getElementById('qLastName').value.trim(),
+      phone:       document.getElementById('qPhone').value.trim(),
+      email:       emailInput.value.trim(),
+      zipCode:     document.getElementById('qZip').value.trim(),
+      systemType:  answers.systemType  ? answers.systemType.value  : '',
+      systemAge:   answers.systemAge   ? answers.systemAge.value   : '',
+      mainProblem: answers.mainProblem ? answers.mainProblem.value  : '',
+      urgency:     answers.urgency     ? answers.urgency.value      : '',
+      submittedAt: new Date().toISOString(),
+    };
+
+    // CRM call — non-blocking
+    try {
+      await submitToCRM(payload);
+    } catch (err) {
+      console.error('[CRM] submitToCRM error (non-fatal):', err);
+    }
+
+    // Web3Forms submission
+    try {
+      const formData = new FormData(form);
+      const body = Object.fromEntries(formData.entries());
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(body),
+      });
+      const result = await res.json();
+      if (!result.success) throw new Error(result.message || 'Web3Forms error');
+    } catch (err) {
+      console.error('[Quiz] Web3Forms submission error:', err);
+      // Still proceed to success — don't strand the user
+    }
+
+    // Show success
+    showSuccess();
+  }
+
+  function formatAnswer(key) {
+    return answers[key] ? answers[key].label : '';
+  }
+
+  // ── Validation ─────────────────────────────────────────────────
+  function validateContactForm(form) {
+    let valid = true;
+    form.querySelectorAll('input[required]').forEach(input => {
+      const empty = !input.value.trim();
+      const emailBad = input.type === 'email' && !input.value.includes('@');
+      const zipBad   = input.name === 'zipCode' && !/^\d{5}$/.test(input.value.trim());
+      const bad = empty || emailBad || zipBad;
+      input.classList.toggle('invalid', bad);
+      if (bad) valid = false;
+    });
+    return valid;
+  }
+
+  // ── Success + redirect ─────────────────────────────────────────
+  function showSuccess() {
+    quizBody.style.display = 'none';
+    document.querySelector('.quiz-progress').style.display = 'none';
+    quizSuccess.classList.add('visible');
+
+    const confirmMsg = quizData ? quizData.confirmation_message : "You're all set! Connecting you with Mr Mechanical now…";
+    quizSuccessMsg.textContent = confirmMsg;
+
+    setTimeout(() => {
+      window.location.href = 'https://www.mrmechlp.com/';
+    }, 2500);
+  }
+
+  // ── Boot ───────────────────────────────────────────────────────
+  init();
+</script>
+
+</body>
+</html>

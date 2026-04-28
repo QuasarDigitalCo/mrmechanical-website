@@ -1,0 +1,65 @@
+{
+  "page_title": "Get Your Free HVAC Estimate",
+  "page_subtitle": "Answer 5 quick questions and we'll send you a free, personalized estimate for your DFW home or business.",
+  "progress_label": "Step {current} of {total}",
+  "questions": [
+    {
+      "id": "systemType",
+      "question": "What best describes your current system?",
+      "options": [
+        { "label": "Central air & heat",      "value": "central_air_heat" },
+        { "label": "Furnace only",             "value": "furnace_only" },
+        { "label": "AC only",                  "value": "ac_only" },
+        { "label": "Heat pump",                "value": "heat_pump" },
+        { "label": "Mini-split / Ductless",    "value": "mini_split" },
+        { "label": "Not sure",                 "value": "not_sure" }
+      ]
+    },
+    {
+      "id": "systemAge",
+      "question": "How old is your HVAC system?",
+      "options": [
+        { "label": "Less than 5 years",  "value": "under_5" },
+        { "label": "5–10 years",         "value": "5_to_10" },
+        { "label": "10–15 years",        "value": "10_to_15" },
+        { "label": "15–20 years",        "value": "15_to_20" },
+        { "label": "Over 20 years",      "value": "over_20" },
+        { "label": "Not sure",           "value": "not_sure" }
+      ]
+    },
+    {
+      "id": "mainProblem",
+      "question": "What's the main problem you're experiencing?",
+      "options": [
+        { "label": "Not cooling or heating properly",  "value": "not_cooling_heating" },
+        { "label": "Energy bills are too high",        "value": "high_energy_bills" },
+        { "label": "Strange noises or smells",         "value": "noises_smells" },
+        { "label": "System breaks down frequently",    "value": "frequent_breakdowns" },
+        { "label": "Looking to replace / upgrade",     "value": "replace_upgrade" },
+        { "label": "Need routine maintenance",         "value": "routine_maintenance" }
+      ]
+    },
+    {
+      "id": "urgency",
+      "question": "When do you need help?",
+      "options": [
+        { "label": "It's an emergency now",    "value": "emergency" },
+        { "label": "Within 24–48 hours",       "value": "24_48_hours" },
+        { "label": "This week",                "value": "this_week" },
+        { "label": "Planning ahead",           "value": "planning_ahead" }
+      ]
+    }
+  ],
+  "contact_step": {
+    "heading": "Where should we send your free estimate?",
+    "fields": {
+      "firstName": "First Name",
+      "lastName":  "Last Name",
+      "phone":     "Phone Number",
+      "email":     "Email Address",
+      "zipCode":   "Zip Code"
+    }
+  },
+  "submit_button_text": "Send My Free Estimate",
+  "confirmation_message": "You're all set! Connecting you with Mr Mechanical now…"
+}
