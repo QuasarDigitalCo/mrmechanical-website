@@ -8,6 +8,9 @@ content:
     type: file
     path: content/business.json
     fields:
+      - { name: name, label: "Business Name", type: string }
+      - { name: tagline, label: "Footer Tagline", type: string }
+      - { name: description, label: "SEO Description", type: text }
       - { name: phone, label: "Phone Number", type: string }
       - { name: phone_raw, label: "Phone Digits Only (for links)", type: string }
       - { name: fax, label: "Fax Number", type: string }
@@ -17,8 +20,10 @@ content:
       - { name: state, label: "State", type: string }
       - { name: zip, label: "ZIP Code", type: string }
       - { name: service_area, label: "Service Area", type: string }
-      - { name: experience_years, label: "Years of Experience", type: string }
-      - { name: description, label: "Short Description (used in SEO)", type: text }
+      - { name: experience_years, label: "Years of Experience (e.g. 50+)", type: string }
+      - { name: facebook_url, label: "Facebook URL", type: string }
+      - { name: instagram_url, label: "Instagram URL", type: string }
+      - { name: linkedin_url, label: "LinkedIn URL", type: string }
 
   - name: services
     label: Services
@@ -105,3 +110,55 @@ content:
               - { label: "Gymnasium / Athletic", value: "fas fa-dumbbell" }
               - { label: "Store / Retail", value: "fas fa-store" }
           - { name: coming_soon, label: "Show 'Coming Soon' badge", type: boolean }
+
+  - name: testimonials
+    label: Client Reviews
+    type: file
+    path: content/testimonials.json
+    fields:
+      - name: items
+        label: Reviews
+        type: object
+        list:
+          collapsible:
+            summary: "{name} — {city}"
+        fields:
+          - { name: name, label: "Reviewer Name", type: string }
+          - { name: city, label: "City", type: string }
+          - { name: quote, label: "Review Text", type: text }
+          - name: stars
+            label: "Star Rating"
+            type: number
+
+  - name: quiz
+    label: Quiz Page
+    type: file
+    path: content/quiz.json
+    fields:
+      - { name: page_title, label: "Page Title", type: string }
+      - { name: page_subtitle, label: "Page Subtitle", type: text }
+      - { name: submit_button_text, label: "Submit Button Text", type: string }
+      - { name: confirmation_message, label: "Confirmation Message", type: string }
+      - name: questions
+        label: Questions
+        type: object
+        list:
+          collapsible:
+            summary: "{question}"
+        fields:
+          - { name: id, label: "ID (do not change)", type: string }
+          - { name: question, label: "Question Text", type: string }
+          - name: options
+            label: Answer Options
+            type: object
+            list:
+              collapsible:
+                summary: "{label}"
+            fields:
+              - { name: label, label: "Option Label", type: string }
+              - { name: value, label: "Option Value (do not change)", type: string }
+      - name: contact_step
+        label: Contact Step
+        type: object
+        fields:
+          - { name: heading, label: "Heading", type: string }

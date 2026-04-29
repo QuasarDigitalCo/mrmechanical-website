@@ -1532,7 +1532,7 @@ a.contact__item:hover { background: var(--clr-light); }
     <div class="hero__stats">
       <div class="hero__stat">
         <svg class="hero__stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <strong>50+</strong>
+        <strong id="heroExpYears">50+</strong>
         <span>Years Combined Experience</span>
       </div>
       <div class="hero__stat-divider"></div>
@@ -1570,7 +1570,7 @@ a.contact__item:hover { background: var(--clr-light); }
     <div class="trust-bar__divider"></div>
     <div class="trust-bar__item">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-      50+ Years Combined Experience
+      <span id="trustExpYears">50+</span> Years Combined Experience
     </div>
     <div class="trust-bar__divider"></div>
     <div class="trust-bar__item">
@@ -1728,63 +1728,7 @@ a.contact__item:hover { background: var(--clr-light); }
         Trusted by commercial and residential clients across DFW.
       </p>
     </div>
-    <div class="testimonials__grid">
-
-      <div class="testimonial-card reveal delay-1">
-        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="testimonial-card__quote">"Fast, professional, and honest. Had our office system back up the same day. Highly recommend."</p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar" aria-hidden="true">J</div>
-          <div>
-            <div class="testimonial-card__name">J.R.</div>
-            <div class="testimonial-card__city">Garland, TX</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal delay-2">
-        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="testimonial-card__quote">"They handled our warehouse install start to finish. Great communication and clean work."</p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar" aria-hidden="true">M</div>
-          <div>
-            <div class="testimonial-card__name">M.T.</div>
-            <div class="testimonial-card__city">Plano, TX</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal delay-3">
-        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="testimonial-card__quote">"Called for an emergency repair and they were there within hours. Will use again."</p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar" aria-hidden="true">S</div>
-          <div>
-            <div class="testimonial-card__name">S.L.</div>
-            <div class="testimonial-card__city">Dallas, TX</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <div class="testimonials__grid" id="testimonialsGrid"></div>
   </div>
 </section>
 <section class="contact section-pad" id="contact">
@@ -1838,13 +1782,13 @@ a.contact__item:hover { background: var(--clr-light); }
         </div>
 
         <div class="contact__social">
-          <a href="#" class="contact__social-btn" aria-label="LinkedIn">
+          <a href="#" class="contact__social-btn" aria-label="LinkedIn" data-social="linkedin">
             <i class="fab fa-linkedin-in" aria-hidden="true"></i>
           </a>
-          <a href="#" class="contact__social-btn" aria-label="Facebook">
+          <a href="#" class="contact__social-btn" aria-label="Facebook" data-social="facebook">
             <i class="fab fa-facebook-f" aria-hidden="true"></i>
           </a>
-          <a href="#" class="contact__social-btn" aria-label="Instagram">
+          <a href="#" class="contact__social-btn" aria-label="Instagram" data-social="instagram">
             <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
         </div>
@@ -1936,16 +1880,13 @@ a.contact__item:hover { background: var(--clr-light); }
       </div>
       <p>Premier DFW HVAC mechanical contracting &amp; service. Serving Dallas/Fort Worth with 50+ years of combined experience.</p>
       <div class="footer__social">
-        <!-- TODO: Replace # with real social media URL when provided by content manager -->
-        <a href="#" class="footer__social-btn" aria-label="Facebook">
+        <a href="#" class="footer__social-btn" aria-label="Facebook" data-social="facebook">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
-        <!-- TODO: Replace # with real social media URL when provided by content manager -->
-        <a href="#" class="footer__social-btn" aria-label="Instagram">
+        <a href="#" class="footer__social-btn" aria-label="Instagram" data-social="instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
-        <!-- TODO: Replace # with real social media URL when provided by content manager -->
-        <a href="#" class="footer__social-btn" aria-label="LinkedIn">
+        <a href="#" class="footer__social-btn" aria-label="LinkedIn" data-social="linkedin">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
       </div>
@@ -2054,15 +1995,53 @@ a.contact__item:hover { background: var(--clr-light); }
       set('ctaServiceArea', b.service_area);
       setHref('ctaPhone', `tel:+1${b.phone_raw}`);
       setHref('ctaEmail', `mailto:${b.email}`);
+      if (b.experience_years) {
+        set('heroExpYears', b.experience_years);
+        set('trustExpYears', b.experience_years);
+      }
+      const socialFields = { facebook: b.facebook_url, instagram: b.instagram_url, linkedin: b.linkedin_url };
+      Object.entries(socialFields).forEach(([platform, url]) => {
+        if (!url) return;
+        document.querySelectorAll(`[data-social="${platform}"]`).forEach(el => {
+          el.href = url;
+          el.target = '_blank';
+          el.rel = 'noopener noreferrer';
+        });
+      });
+    }
+
+    const STAR_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+
+    function renderTestimonials(data) {
+      const el = document.getElementById('testimonialsGrid');
+      if (!el) return;
+      el.innerHTML = data.map((t, i) => {
+        const stars = Math.min(5, Math.max(1, t.stars || 5));
+        const starsHtml = STAR_SVG.repeat(stars);
+        const initial = (t.name || '?')[0].toUpperCase();
+        return `
+        <div class="testimonial-card reveal ${DELAYS[i % DELAYS.length]}">
+          <div class="testimonial-card__stars" aria-label="${stars} out of 5 stars">${starsHtml}</div>
+          <p class="testimonial-card__quote">"${t.quote}"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">${initial}</div>
+            <div>
+              <div class="testimonial-card__name">${t.name}</div>
+              <div class="testimonial-card__city">${t.city}</div>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
     }
 
     async function loadContent() {
       const fetchJson = url => fetch(url).then(r => r.json()).catch(() => null);
-      const [business, services, products, projects] = await Promise.all([
+      const [business, services, products, projects, testimonials] = await Promise.all([
         fetchJson('content/business.json'),
         fetchJson('content/services.json'),
         fetchJson('content/products.json'),
         fetchJson('content/projects.json'),
+        fetchJson('content/testimonials.json'),
       ]);
       if (services?.items) renderServices(services.items);
       renderProducts(products?.items?.length ? products.items : [
@@ -2071,9 +2050,14 @@ a.contact__item:hover { background: var(--clr-light); }
         { title: 'Air Handlers', description: 'Indoor air handling units, filters, and ventilation systems', icon: 'fas fa-wind' }
       ]);
       renderProjects(projects?.items?.length ? projects.items : [
-        { category: 'Dallas, TX',      title: 'Office Building HVAC Install',   description: 'Full system installation for a 3-story commercial office in Dallas, TX.',  icon: 'fas fa-building' },
-        { category: 'DFW Metroplex',   title: 'Warehouse Climate Control',       description: 'Industrial ventilation and cooling system for a DFW logistics facility.',   icon: 'fas fa-warehouse' },
-        { category: 'DFW Metroplex',   title: 'Medical Facility Ventilation',    description: 'Specialized MRI/CT scan ventilation system, DFW Metroplex.',               icon: 'fas fa-x-ray' }
+        { category: 'Dallas, TX',    title: 'Office Building HVAC Install',  description: 'Full system installation for a 3-story commercial office in Dallas, TX.',  icon: 'fas fa-building' },
+        { category: 'DFW Metroplex', title: 'Warehouse Climate Control',      description: 'Industrial ventilation and cooling system for a DFW logistics facility.',   icon: 'fas fa-warehouse' },
+        { category: 'DFW Metroplex', title: 'Medical Facility Ventilation',   description: 'Specialized MRI/CT scan ventilation system, DFW Metroplex.',               icon: 'fas fa-x-ray' }
+      ]);
+      renderTestimonials(testimonials?.items?.length ? testimonials.items : [
+        { name: 'J.R.', city: 'Garland, TX', quote: 'Fast, professional, and honest. Had our office system back up the same day. Highly recommend.', stars: 5 },
+        { name: 'M.T.', city: 'Plano, TX',   quote: 'They handled our warehouse install start to finish. Great communication and clean work.',        stars: 5 },
+        { name: 'S.L.', city: 'Dallas, TX',  quote: 'Called for an emergency repair and they were there within hours. Will use again.',               stars: 5 }
       ]);
       if (business) updateBusiness(business);
       observeReveal();

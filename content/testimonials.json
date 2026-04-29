@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "name": "J.R.",
+      "city": "Garland, TX",
+      "quote": "Fast, professional, and honest. Had our office system back up the same day. Highly recommend.",
+      "stars": 5
+    },
+    {
+      "name": "M.T.",
+      "city": "Plano, TX",
+      "quote": "They handled our warehouse install start to finish. Great communication and clean work.",
+      "stars": 5
+    },
+    {
+      "name": "S.L.",
+      "city": "Dallas, TX",
+      "quote": "Called for an emergency repair and they were there within hours. Will use again.",
+      "stars": 5
+    }
+  ]
+}
