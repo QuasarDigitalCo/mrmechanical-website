@@ -209,7 +209,8 @@
       background: rgba(13, 27, 42, 0.97);
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
       padding: 0.6rem 0;
     }
     .nav__inner {
@@ -500,6 +501,12 @@
       background: rgba(255,255,255,0.15);
     }
 
+    .hero__stat-icon {
+      display: block;
+      color: var(--clr-accent);
+      margin-bottom: 0.4rem;
+    }
+
     .hero__scroll-indicator {
       position: absolute;
       bottom: 2rem;
@@ -608,6 +615,128 @@
     @media (max-width: 900px) {
       .hero__inner { grid-template-columns: 1fr; }
       .hero__visual { display: none; }
+    }
+
+    /* ============================================================
+       TRUST BAR
+    ============================================================ */
+    .trust-bar {
+      background: var(--clr-light);
+      border-top: 1px solid var(--clr-border);
+      border-bottom: 1px solid var(--clr-border);
+      padding: 1rem 0;
+    }
+    .trust-bar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .trust-bar__item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-head);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--clr-navy);
+      letter-spacing: 0.01em;
+      padding: 0.4rem 1.75rem;
+      white-space: nowrap;
+    }
+    .trust-bar__item svg { flex-shrink: 0; color: var(--clr-accent); }
+    .trust-bar__divider {
+      width: 1px;
+      height: 20px;
+      background: var(--clr-border);
+      flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .trust-bar__divider { display: none; }
+      .trust-bar__item { font-size: 0.75rem; padding: 0.35rem 0.75rem; }
+    }
+
+    /* ============================================================
+       QUIZ BANNER
+    ============================================================ */
+    .quiz-banner {
+      background: linear-gradient(135deg, #fff8ed 0%, #fff3e0 100%);
+      border-top: 1px solid rgba(232,151,26,0.2);
+      border-bottom: 1px solid rgba(232,151,26,0.25);
+      padding: 0.85rem 0;
+    }
+    .quiz-banner__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .quiz-banner__copy {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .quiz-banner__icon { flex-shrink: 0; color: var(--clr-accent); }
+    .quiz-banner__text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .quiz-banner__headline {
+      font-family: var(--font-head);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--clr-navy);
+      line-height: 1.2;
+    }
+    .quiz-banner__sub {
+      font-size: 0.8rem;
+      color: var(--clr-muted);
+      line-height: 1.4;
+    }
+    .quiz-banner__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+    }
+    .quiz-banner__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--clr-accent);
+      color: var(--clr-white);
+      font-family: var(--font-head);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .quiz-banner__btn:hover { background: var(--clr-accent2); transform: translateY(-1px); }
+    .quiz-banner__dismiss {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--clr-muted);
+      padding: 0.3rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color var(--transition), background var(--transition);
+      flex-shrink: 0;
+    }
+    .quiz-banner__dismiss:hover { color: var(--clr-text); background: rgba(0,0,0,0.07); }
+    @media (max-width: 640px) {
+      .quiz-banner__sub { display: none; }
+      .quiz-banner__headline { font-size: 0.82rem; }
     }
 
     /* ============================================================
@@ -789,72 +918,66 @@
 /* ============================================================
    PRODUCTS
 ============================================================ */
-.products__inner {
+.products__grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
-.products__list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border: 1px solid var(--clr-border);
+.product-card {
+  background: var(--clr-white);
   border-radius: var(--radius);
   overflow: hidden;
+  border: 1px solid var(--clr-border);
   box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-
-.product-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.1rem 1.5rem;
-  background: var(--clr-white);
-  border-bottom: 1px solid var(--clr-border);
-  transition: background var(--transition);
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
-.product-item:last-child { border-bottom: none; }
-.product-item:hover { background: var(--clr-light); }
-.product-item:hover .product-item__num {
-  background: var(--clr-blue);
-  color: var(--clr-white);
+.product-card__img {
+  height: 160px;
+  background: linear-gradient(135deg, var(--clr-navy), var(--clr-blue));
+  display: grid;
+  place-items: center;
+  font-size: 2.5rem;
+  color: rgba(255,255,255,0.25);
 }
-
-.product-item__num {
+.product-card__body {
+  padding: 1.25rem;
+}
+.product-card__tag {
+  display: inline-block;
   font-family: var(--font-head);
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: var(--clr-blue);
-  background: rgba(37,99,168,0.1);
-  width: 32px; height: 32px;
-  min-width: 32px;
-  border-radius: 6px;
-  display: grid; place-items: center;
-  transition: background var(--transition), color var(--transition);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  background: rgba(232,151,26,0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
 }
-.product-item h3 {
+.product-card h3 {
   font-family: var(--font-head);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--clr-dark);
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.35rem;
 }
-.product-item p {
+.product-card p {
   font-size: 0.82rem;
   color: var(--clr-muted);
-  line-height: 1.45;
-}
-.product-item__icon {
-  margin-left: auto;
-  font-size: 1.1rem;
-  color: var(--clr-border);
-  flex-shrink: 0;
+  line-height: 1.5;
 }
 
-@media (max-width: 860px) {
-  .products__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+@media (max-width: 1024px) {
+  .products__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .products__grid { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
@@ -862,7 +985,7 @@
 ============================================================ */
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -946,6 +1069,78 @@
 }
 @media (max-width: 560px) {
   .projects__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   TESTIMONIALS
+============================================================ */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.testimonial-card__stars {
+  display: flex;
+  gap: 0.15rem;
+  color: var(--clr-accent);
+}
+.testimonial-card__quote {
+  font-size: 0.95rem;
+  color: var(--clr-text);
+  line-height: 1.7;
+  flex: 1;
+}
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-top: 1px solid var(--clr-border);
+  padding-top: 1rem;
+}
+.testimonial-card__avatar {
+  width: 40px; height: 40px;
+  min-width: 40px;
+  background: linear-gradient(135deg, var(--clr-navy), var(--clr-blue));
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--clr-white);
+}
+.testimonial-card__name {
+  font-family: var(--font-head);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+}
+.testimonial-card__city {
+  font-size: 0.78rem;
+  color: var(--clr-muted);
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 860px) {
+  .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .testimonials__grid { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
@@ -1058,6 +1253,11 @@ a.contact__item:hover { background: var(--clr-light); }
   font-size: 1.3rem;
   font-weight: 800;
   color: var(--clr-dark);
+  margin-bottom: 0.4rem;
+}
+.contact__form-note {
+  font-size: 0.82rem;
+  color: var(--clr-muted);
   margin-bottom: 1.5rem;
 }
 .form-row {
@@ -1113,9 +1313,24 @@ a.contact__item:hover { background: var(--clr-light); }
   font-weight: 600;
 }
 
+.contact__map {
+  margin-top: 3rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--clr-border);
+  box-shadow: var(--shadow-sm);
+}
+.contact__map iframe {
+  display: block;
+  width: 100%;
+  height: 340px;
+  border: none;
+}
+
 @media (max-width: 860px) {
   .contact__grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .form-row { grid-template-columns: 1fr; }
+  .contact__map iframe { height: 260px; }
 }
 
 /* ============================================================
@@ -1180,6 +1395,26 @@ a.contact__item:hover { background: var(--clr-light); }
 .footer__contact a { transition: color var(--transition); }
 .footer__contact a:hover { color: var(--clr-accent2); }
 
+.footer__social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.footer__social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: var(--clr-white);
+  transition: background var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+.footer__social-btn:hover { background: var(--clr-accent); color: var(--clr-white); }
+.footer__social-btn svg { display: block; }
+
 .footer__bottom {
   padding: 1.25rem 0;
 }
@@ -1227,7 +1462,7 @@ a.contact__item:hover { background: var(--clr-light); }
       }
       .about__value:hover,
       .service-card:hover,
-      .product-item:hover,
+      .product-card:hover,
       .project-card:hover {
         transform: none;
       }
@@ -1259,8 +1494,9 @@ a.contact__item:hover { background: var(--clr-light); }
       <a href="#about"    class="nav__link">About</a>
       <a href="#services" class="nav__link">Services</a>
       <a href="#products" class="nav__link">Products</a>
-      <a href="#projects" class="nav__link">Projects</a>
-      <a href="#contact"  class="nav__link">Contact</a>
+      <a href="#projects"     class="nav__link">Projects</a>
+      <a href="#testimonials" class="nav__link">Reviews</a>
+      <a href="#contact"      class="nav__link">Contact</a>
       <a href="tel:+19722711225" class="nav__cta">
         <i class="fas fa-phone"></i> (972) 271-1225
       </a>
@@ -1289,22 +1525,25 @@ a.contact__item:hover { background: var(--clr-light); }
       <a href="tel:+19722711225" class="btn btn--primary">
         <i class="fas fa-phone-volume"></i> Call (972) 271-1225
       </a>
-      <a href="#services" class="btn btn--outline">
-        Our Services <i class="fas fa-arrow-down"></i>
+      <a href="#contact" class="btn btn--outline">
+        Get a Free Estimate <i class="fas fa-arrow-down"></i>
       </a>
     </div>
     <div class="hero__stats">
       <div class="hero__stat">
+        <svg class="hero__stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <strong>50+</strong>
         <span>Years Combined Experience</span>
       </div>
       <div class="hero__stat-divider"></div>
       <div class="hero__stat">
+        <svg class="hero__stat-icon" width="18" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <strong>DFW</strong>
         <span>Dallas / Fort Worth Region</span>
       </div>
       <div class="hero__stat-divider"></div>
       <div class="hero__stat">
+        <svg class="hero__stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         <strong>All Makes</strong>
         <span>Every Brand &amp; Model</span>
       </div>
@@ -1321,6 +1560,49 @@ a.contact__item:hover { background: var(--clr-light); }
     <div class="hero__scroll-dot"></div>
   </div>
 </section>
+
+<div class="trust-bar">
+  <div class="container trust-bar__inner">
+    <div class="trust-bar__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      Licensed &amp; Insured
+    </div>
+    <div class="trust-bar__divider"></div>
+    <div class="trust-bar__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      50+ Years Combined Experience
+    </div>
+    <div class="trust-bar__divider"></div>
+    <div class="trust-bar__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      All Makes &amp; Models
+    </div>
+    <div class="trust-bar__divider"></div>
+    <div class="trust-bar__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Serving DFW Since Day One
+    </div>
+  </div>
+</div>
+
+<div class="quiz-banner" id="quizBanner">
+  <div class="container quiz-banner__inner">
+    <div class="quiz-banner__copy">
+      <svg class="quiz-banner__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div class="quiz-banner__text">
+        <span class="quiz-banner__headline">Not sure what you need?</span>
+        <span class="quiz-banner__sub">Take our 60-second system checkup and get a free estimate.</span>
+      </div>
+    </div>
+    <div class="quiz-banner__actions">
+      <a href="quiz.html" class="quiz-banner__btn">Start the Quiz <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      <button class="quiz-banner__dismiss" id="quizBannerDismiss" aria-label="Dismiss banner">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
   <section class="about section-pad" id="about">
   <div class="container">
     <div class="about__grid">
@@ -1413,18 +1695,15 @@ a.contact__item:hover { background: var(--clr-light); }
 </section>
 <section class="products section-pad" id="products">
   <div class="container">
-    <div class="products__inner">
-      <div class="products__header reveal-left">
-        <span class="section-label">Systems &amp; Equipment</span>
-        <h2 class="section-title">Products &amp; <span>Systems</span> We Service</h2>
-        <p class="section-desc" style="margin-top:0.75rem;">
-          We install, repair, and maintain all makes and models of commercial and industrial
-          HVAC systems across the DFW metroplex.
-        </p>
-      </div>
-
-      <div class="products__list reveal-right" id="productsList"></div>
+    <div class="section-header reveal">
+      <span class="section-label">Systems &amp; Equipment</span>
+      <h2 class="section-title">Products &amp; <span>Systems</span> We Service</h2>
+      <p class="section-desc" style="margin-top:0.75rem;">
+        We install, repair, and maintain all makes and models of commercial and industrial
+        HVAC systems across the DFW metroplex.
+      </p>
     </div>
+    <div class="products__grid" id="productsList"></div>
   </div>
 </section>
 <section class="projects section-pad section-pad--alt" id="projects">
@@ -1433,11 +1712,79 @@ a.contact__item:hover { background: var(--clr-light); }
       <span class="section-label">Our Work</span>
       <h2 class="section-title">Featured <span>Projects</span></h2>
       <p class="section-desc" style="margin-top:0.75rem;">
-        We've delivered HVAC solutions across the DFW metroplex for a wide range of commercial
-        and industrial clients. Project showcases coming soon.
+        A sample of HVAC solutions we've delivered across the DFW metroplex for commercial,
+        industrial, and medical clients.
       </p>
     </div>
     <div class="projects__grid" id="projectsGrid"></div>
+  </div>
+</section>
+<section class="testimonials section-pad" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Client Reviews</span>
+      <h2 class="section-title">What Our <span>Clients Say</span></h2>
+      <p class="section-desc" style="margin-top:0.75rem;">
+        Trusted by commercial and residential clients across DFW.
+      </p>
+    </div>
+    <div class="testimonials__grid">
+
+      <div class="testimonial-card reveal delay-1">
+        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-card__quote">"Fast, professional, and honest. Had our office system back up the same day. Highly recommend."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">J</div>
+          <div>
+            <div class="testimonial-card__name">J.R.</div>
+            <div class="testimonial-card__city">Garland, TX</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal delay-2">
+        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-card__quote">"They handled our warehouse install start to finish. Great communication and clean work."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">M</div>
+          <div>
+            <div class="testimonial-card__name">M.T.</div>
+            <div class="testimonial-card__city">Plano, TX</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal delay-3">
+        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-card__quote">"Called for an emergency repair and they were there within hours. Will use again."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">S</div>
+          <div>
+            <div class="testimonial-card__name">S.L.</div>
+            <div class="testimonial-card__city">Dallas, TX</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 <section class="contact section-pad" id="contact">
@@ -1517,6 +1864,7 @@ a.contact__item:hover { background: var(--clr-light); }
           <input type="hidden" name="subject" value="New Quote Request — Mr Mechanical LP" />
           <input type="hidden" name="from_name" value="Mr Mechanical LP Website" />
           <h3>Request a Quote</h3>
+          <p class="contact__form-note">We respond to all inquiries within one business day.</p>
           <div class="form-row">
             <div class="form-group">
               <label for="fname">First Name</label>
@@ -1566,6 +1914,17 @@ a.contact__item:hover { background: var(--clr-light); }
       </div>
 
     </div>
+
+    <div class="contact__map reveal">
+      <iframe
+        src="https://www.google.com/maps?q=10720+Miller+Rd%2C+Dallas%2C+TX+75238&output=embed&hl=en&z=15"
+        title="Mr Mechanical LP — 10720 Miller Rd, Dallas, TX 75238"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
   </div>
 </section>
 
@@ -1576,6 +1935,20 @@ a.contact__item:hover { background: var(--clr-light); }
         <img src="media/logo.png" alt="Mr Mechanical LP" class="footer__logo-img" />
       </div>
       <p>Premier DFW HVAC mechanical contracting &amp; service. Serving Dallas/Fort Worth with 50+ years of combined experience.</p>
+      <div class="footer__social">
+        <!-- TODO: Replace # with real social media URL when provided by content manager -->
+        <a href="#" class="footer__social-btn" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <!-- TODO: Replace # with real social media URL when provided by content manager -->
+        <a href="#" class="footer__social-btn" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <!-- TODO: Replace # with real social media URL when provided by content manager -->
+        <a href="#" class="footer__social-btn" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
     </div>
     <div class="footer__links">
       <h4>Quick Links</h4>
@@ -1584,6 +1957,7 @@ a.contact__item:hover { background: var(--clr-light); }
         <li><a href="#services">Services</a></li>
         <li><a href="#products">Products</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -1638,10 +2012,13 @@ a.contact__item:hover { background: var(--clr-light); }
       const el = document.getElementById('productsList');
       if (!el) return;
       el.innerHTML = data.map((p, i) => `
-        <div class="product-item">
-          <div class="product-item__num">${String(i + 1).padStart(2, '0')}</div>
-          <div><h3>${p.title}</h3><p>${p.description}</p></div>
-          <i class="${p.icon} product-item__icon" aria-hidden="true"></i>
+        <div class="product-card reveal ${DELAYS[i % DELAYS.length]}">
+          <div class="product-card__img"><i class="${p.icon || 'fas fa-cog'}" aria-hidden="true"></i></div>
+          <div class="product-card__body">
+            <span class="product-card__tag">All Makes &amp; Models</span>
+            <h3>${p.title}</h3>
+            <p>${p.description}</p>
+          </div>
         </div>`).join('');
     }
 
@@ -1680,23 +2057,42 @@ a.contact__item:hover { background: var(--clr-light); }
     }
 
     async function loadContent() {
-      try {
-        const [business, services, products, projects] = await Promise.all([
-          fetch('content/business.json').then(r => r.json()),
-          fetch('content/services.json').then(r => r.json()),
-          fetch('content/products.json').then(r => r.json()),
-          fetch('content/projects.json').then(r => r.json()),
-        ]);
-        renderServices(services.items);
-        renderProducts(products.items);
-        renderProjects(projects.items);
-        updateBusiness(business);
-        observeReveal();
-      } catch (e) {
-        console.warn('Content JSON load failed — check content/ files exist.');
-      }
+      const fetchJson = url => fetch(url).then(r => r.json()).catch(() => null);
+      const [business, services, products, projects] = await Promise.all([
+        fetchJson('content/business.json'),
+        fetchJson('content/services.json'),
+        fetchJson('content/products.json'),
+        fetchJson('content/projects.json'),
+      ]);
+      if (services?.items) renderServices(services.items);
+      renderProducts(products?.items?.length ? products.items : [
+        { title: 'Rooftop Units', description: 'Commercial rooftop HVAC systems, all makes and models', icon: 'fas fa-building' },
+        { title: 'Split Systems', description: 'Central air and heat installations for any building type', icon: 'fas fa-layer-group' },
+        { title: 'Air Handlers', description: 'Indoor air handling units, filters, and ventilation systems', icon: 'fas fa-wind' }
+      ]);
+      renderProjects(projects?.items?.length ? projects.items : [
+        { category: 'Dallas, TX',      title: 'Office Building HVAC Install',   description: 'Full system installation for a 3-story commercial office in Dallas, TX.',  icon: 'fas fa-building' },
+        { category: 'DFW Metroplex',   title: 'Warehouse Climate Control',       description: 'Industrial ventilation and cooling system for a DFW logistics facility.',   icon: 'fas fa-warehouse' },
+        { category: 'DFW Metroplex',   title: 'Medical Facility Ventilation',    description: 'Specialized MRI/CT scan ventilation system, DFW Metroplex.',               icon: 'fas fa-x-ray' }
+      ]);
+      if (business) updateBusiness(business);
+      observeReveal();
     }
     loadContent();
+
+    // Quiz banner: hide if previously dismissed, wire up dismiss button
+    (function() {
+      const banner = document.getElementById('quizBanner');
+      if (!banner) return;
+      if (localStorage.getItem('mrmech_quiz_dismissed')) {
+        banner.style.display = 'none';
+        return;
+      }
+      document.getElementById('quizBannerDismiss').addEventListener('click', () => {
+        banner.style.display = 'none';
+        localStorage.setItem('mrmech_quiz_dismissed', '1');
+      });
+    })();
 
     // Nav scroll behavior (passive for performance)
     const nav = document.getElementById('nav');

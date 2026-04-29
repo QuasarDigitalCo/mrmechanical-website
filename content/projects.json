@@ -1,36 +1,25 @@
 {
   "items": [
     {
-      "category": "Commercial",
-      "title": "Project Coming Soon",
-      "description": "Details for this featured project will be published shortly.",
+      "category": "Dallas, TX",
+      "title": "Office Building HVAC Install",
+      "description": "Full system installation for a 3-story commercial office in Dallas, TX.",
       "image": "",
-      "icon": "fas fa-building",
-      "coming_soon": true
+      "icon": "fas fa-building"
     },
     {
-      "category": "Medical",
-      "title": "Project Coming Soon",
-      "description": "Details for this featured project will be published shortly.",
+      "category": "DFW Metroplex",
+      "title": "Warehouse Climate Control",
+      "description": "Industrial ventilation and cooling system for a DFW logistics facility.",
       "image": "",
-      "icon": "fas fa-x-ray",
-      "coming_soon": true
+      "icon": "fas fa-warehouse"
     },
     {
-      "category": "Industrial",
-      "title": "Project Coming Soon",
-      "description": "Details for this featured project will be published shortly.",
+      "category": "DFW Metroplex",
+      "title": "Medical Facility Ventilation",
+      "description": "Specialized MRI/CT scan ventilation system, DFW Metroplex.",
       "image": "",
-      "icon": "fas fa-warehouse",
-      "coming_soon": true
-    },
-    {
-      "category": "Athletic",
-      "title": "Project Coming Soon",
-      "description": "Details for this featured project will be published shortly.",
-      "image": "",
-      "icon": "fas fa-dumbbell",
-      "coming_soon": true
+      "icon": "fas fa-x-ray"
     }
   ]
 }
