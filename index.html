@@ -843,7 +843,10 @@
   padding: 1.5rem 1.75rem 1.5rem 2rem;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
+.about__rotating-quote.loaded { opacity: 1; }
 .about__rotating-quote::before {
   content: '\201C';
   position: absolute;
@@ -1714,7 +1717,7 @@ a.contact__item:hover { background: var(--clr-light); }
 
     </div>
 
-    <div class="about__rotating-quote reveal" id="aboutRotatingQuote" aria-live="polite" aria-atomic="true">
+    <div class="about__rotating-quote" id="aboutRotatingQuote" aria-live="polite" aria-atomic="true">
       <div class="about__rq-inner" id="aboutRQInner">
         <div class="about__rq-stars" id="aboutRQStars"></div>
         <blockquote class="about__rq-text" id="aboutRQText"></blockquote>
@@ -2068,13 +2071,15 @@ a.contact__item:hover { background: var(--clr-light); }
 
     function initRotatingQuote(items) {
       if (!items || items.length === 0) return;
-      const inner  = document.getElementById('aboutRQInner');
-      const starsEl = document.getElementById('aboutRQStars');
-      const textEl  = document.getElementById('aboutRQText');
-      const attrEl  = document.getElementById('aboutRQAttr');
-      if (!inner || !starsEl || !textEl || !attrEl) return;
+      const container = document.getElementById('aboutRotatingQuote');
+      const inner     = document.getElementById('aboutRQInner');
+      const starsEl   = document.getElementById('aboutRQStars');
+      const textEl    = document.getElementById('aboutRQText');
+      const attrEl    = document.getElementById('aboutRQAttr');
+      if (!container || !inner || !starsEl || !textEl || !attrEl) return;
 
       let idx = 0;
+      let firstLoad = true;
 
       function show(i) {
         const item = items[i];
@@ -2086,6 +2091,7 @@ a.contact__item:hover { background: var(--clr-light); }
           textEl.textContent = item.quote;
           attrEl.textContent = item.city ? `— ${item.name}, ${item.city}` : `— ${item.name}`;
           inner.classList.remove('fading');
+          if (firstLoad) { container.classList.add('loaded'); firstLoad = false; }
         }, 450);
       }
 
