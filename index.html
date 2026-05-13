@@ -426,8 +426,40 @@
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 3rem;
+      margin-bottom: 1.25rem;
       animation: fadeInUp 0.7s 0.35s ease both;
+    }
+
+    .hero__social {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.7s 0.42s ease both;
+    }
+    .hero__social-label {
+      font-size: 0.75rem;
+      font-family: var(--font-head);
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-right: 0.2rem;
+    }
+    .hero__social-btn {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.65);
+      display: grid; place-items: center;
+      font-size: 0.78rem;
+      transition: all var(--transition);
+    }
+    .hero__social-btn:hover {
+      background: var(--clr-accent);
+      border-color: var(--clr-accent);
+      color: var(--clr-white);
+      transform: translateY(-2px);
     }
 
     /* Shared button styles */
@@ -1575,6 +1607,18 @@ a.contact__item:hover { background: var(--clr-light); }
       </a>
       <a href="#contact" class="btn btn--outline">
         Get a Free Estimate <i class="fas fa-arrow-down"></i>
+      </a>
+    </div>
+    <div class="hero__social">
+      <span class="hero__social-label">Follow Us</span>
+      <a href="#" class="hero__social-btn" aria-label="Facebook" data-social="facebook">
+        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+      </a>
+      <a href="#" class="hero__social-btn" aria-label="Instagram" data-social="instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="#" class="hero__social-btn" aria-label="LinkedIn" data-social="linkedin">
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
       </a>
     </div>
     <div class="hero__stats">
