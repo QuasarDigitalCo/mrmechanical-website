@@ -279,6 +279,15 @@
     }
 
     /* Hamburger */
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+    .nav__mobile-call {
+      display: none;
+    }
     .nav__toggle {
       display: none;
       flex-direction: column;
@@ -298,6 +307,21 @@
 
     @media (max-width: 900px) {
       .nav__toggle { display: flex; }
+      .nav__mobile-call {
+        display: grid;
+        place-items: center;
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        background: var(--clr-accent);
+        color: var(--clr-white);
+        font-size: 0.85rem;
+        transition: background var(--transition), transform var(--transition);
+        flex-shrink: 0;
+      }
+      .nav__mobile-call:hover {
+        background: var(--clr-accent2);
+        transform: translateY(-1px);
+      }
       .nav__links {
         display: none;
         position: absolute;
@@ -1563,13 +1587,18 @@ a.contact__item:hover { background: var(--clr-light); }
     <a href="#hero" class="nav__logo">
       <img src="media/logo.png" alt="Mr Mechanical LP" class="nav__logo-img" />
     </a>
-    <button class="nav__toggle" id="navToggle"
-            aria-expanded="false" aria-controls="navLinks"
-            aria-label="Toggle navigation">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
+    <div class="nav__actions">
+      <a href="tel:+19722711225" class="nav__mobile-call" aria-label="Call Mr Mechanical">
+        <i class="fas fa-phone" aria-hidden="true"></i>
+      </a>
+      <button class="nav__toggle" id="navToggle"
+              aria-expanded="false" aria-controls="navLinks"
+              aria-label="Toggle navigation">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
     <nav class="nav__links" id="navLinks" aria-label="Main navigation">
       <a href="#about"    class="nav__link">About</a>
       <a href="#services" class="nav__link">Services</a>
