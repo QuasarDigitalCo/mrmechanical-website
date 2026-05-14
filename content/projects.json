@@ -1,25 +1,25 @@
 {
-  "items": [
-    {
-      "category": "Dallas, TX",
-      "title": "Office Building HVAC Install",
-      "description": "Full system installation for a 3-story commercial office in Dallas, TX.",
-      "image": "",
-      "icon": "fas fa-building"
-    },
-    {
-      "category": "DFW Metroplex",
-      "title": "Warehouse Climate Control",
-      "description": "Industrial ventilation and cooling system for a DFW logistics facility.",
-      "image": "",
-      "icon": "fas fa-warehouse"
-    },
-    {
-      "category": "DFW Metroplex",
-      "title": "Medical Facility Ventilation",
-      "description": "Specialized MRI/CT scan ventilation system, DFW Metroplex.",
-      "image": "",
-      "icon": "fas fa-x-ray"
-    }
-  ]
+    "items":  [
+                  {
+                      "category":  "Dallas, TX",
+                      "title":  "Office Building HVAC Install",
+                      "description":  "Full system installation for a 3-story commercial office in Dallas, TX.",
+                      "image":  "media/hvac_card_final.png",
+                      "icon":  "fas fa-building"
+                  },
+                  {
+                      "category":  "DFW Metroplex",
+                      "title":  "Warehouse Climate Control",
+                      "description":  "Industrial ventilation and cooling system for a DFW logistics facility.",
+                      "image":  "",
+                      "icon":  "fas fa-warehouse"
+                  },
+                  {
+                      "category":  "DFW Metroplex",
+                      "title":  "Medical Facility Ventilation",
+                      "description":  "Specialized MRI/CT scan ventilation system, DFW Metroplex.",
+                      "image":  "",
+                      "icon":  "fas fa-x-ray"
+                  }
+              ]
 }
