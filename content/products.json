@@ -1,39 +1,46 @@
 {
-  "items": [
-    {
-      "title": "Packaging Units",
-      "description": "Self-contained packaged HVAC systems for rooftop and ground-level commercial applications.",
-      "icon": "fas fa-box-open"
-    },
-    {
-      "title": "Split Systems",
-      "description": "Indoor/outdoor split configurations for flexible commercial zoning and multi-room climate control.",
-      "icon": "fas fa-layer-group"
-    },
-    {
-      "title": "Compressor Replacement",
-      "description": "Expert compressor diagnostics and replacement to restore your existing system to peak efficiency.",
-      "icon": "fas fa-arrows-rotate"
-    },
-    {
-      "title": "Temperature Control Systems",
-      "description": "Energy control and building automation solutions for precise, programmable climate management.",
-      "icon": "fas fa-sliders"
-    },
-    {
-      "title": "Computer Room Cooling",
-      "description": "High-precision cooling for server rooms, data centers, and technology environments requiring tight tolerances.",
-      "icon": "fas fa-server"
-    },
-    {
-      "title": "Heat Pump Systems",
-      "description": "Energy-efficient heat pump installation and maintenance for year-round heating and cooling.",
-      "icon": "fas fa-thermometer-half"
-    },
-    {
-      "title": "Air Conditioning Maintenance",
-      "description": "Comprehensive A/C tune-up and preventive maintenance services for all commercial cooling systems.",
-      "icon": "fas fa-snowflake"
-    }
-  ]
+    "items":  [
+                  {
+                      "title":  "Packaging Units",
+                      "description":  "Self-contained packaged HVAC systems for rooftop and ground-level commercial applications.",
+                      "icon":  "fas fa-box-open",
+                      "image":  "media/Packaging_Unit.jpg"
+                  },
+                  {
+                      "title":  "Split Systems",
+                      "description":  "Indoor/outdoor split configurations for flexible commercial zoning and multi-room climate control.",
+                      "icon":  "fas fa-layer-group",
+                      "image":  "media/Split_Systems.jpg"
+                  },
+                  {
+                      "title":  "Compressor Replacement",
+                      "description":  "Expert compressor diagnostics and replacement to restore your existing system to peak efficiency.",
+                      "icon":  "fas fa-arrows-rotate",
+                      "image":  "media/Compressor_Replacement.jpg"
+                  },
+                  {
+                      "title":  "Temperature Control Systems",
+                      "description":  "Energy control and building automation solutions for precise, programmable climate management.",
+                      "icon":  "fas fa-sliders",
+                      "image":  "media/Temp_Control.jpg"
+                  },
+                  {
+                      "title":  "Computer Room Cooling",
+                      "description":  "High-precision cooling for server rooms, data centers, and technology environments requiring tight tolerances.",
+                      "icon":  "fas fa-server",
+                      "image":  "media/Computer_Rooms.jpg"
+                  },
+                  {
+                      "title":  "Heat Pump Systems",
+                      "description":  "Energy-efficient heat pump installation and maintenance for year-round heating and cooling.",
+                      "icon":  "fas fa-thermometer-half",
+                      "image":  "media/Heat_Pump_System.jpg"
+                  },
+                  {
+                      "title":  "Air Conditioning Maintenance",
+                      "description":  "Comprehensive A/C tune-up and preventive maintenance services for all commercial cooling systems.",
+                      "icon":  "fas fa-snowflake",
+                      "image":  "media/HVAC_Maintenence.jpg"
+                  }
+              ]
 }
